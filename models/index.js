@@ -1,5 +1,5 @@
 module.exports = {
     Quiz: require("./Quiz"),
     Users: require("./Users"),
-    Answers: require("./Answers")
+    Answers: require("./Stats")
   };
