@@ -6,7 +6,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/knowsy");
 const quizSeed = [
     {
         title: "Sample Quiz",
-        creator: "admin",
+        author: "admin",
         questions: [
             {
                 "type": "choices",
@@ -20,7 +20,9 @@ const quizSeed = [
             }
         ],
         version: "1",
-        takenBy: []
+        public: true,
+        takenBy: [],
+        tags: ['educational', 'test', 'math', 'elementary']
     }
 ];
 
