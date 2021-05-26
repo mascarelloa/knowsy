@@ -1,3 +1,5 @@
 module.exports = {
-    Post: require("./post")
+    Quiz: require("./Quiz"),
+    Users: require("./Users"),
+    Answers: require("./Answers")
   };
