@@ -1,0 +1,18 @@
+{
+    "title": "Sample Quiz",
+    "creator": "admin",
+    "questions": [
+        {
+            "type": "checkbox",
+            "question": "Question text here",
+            "answers": "answer"
+        },
+        {
+            "type": "choices",
+            "question": "Question text here",
+            "answers": "answers"
+        }
+    ],
+    "version": "1",
+    "takenBy": []
+}
