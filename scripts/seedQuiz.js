@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const db = require("../models");
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/quizzdb");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/knowsy");
 
 const quizSeed = [
     {
@@ -24,8 +24,8 @@ const quizSeed = [
     }
 ];
 
-db.Post.remove({})
-  .then(() => db.Post.collection.insertMany(quizSeed))
+db.Quiz.remove({})
+  .then(() => db.Quiz.collection.insertMany(quizSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);
