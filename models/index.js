@@ -1,3 +1,5 @@
 module.exports = {
-    Quiz: require("./Quiz")
+    Quiz: require("./Quiz"),
+    Users: require("./Users"),
+    Answers: require("./Answers")
   };
