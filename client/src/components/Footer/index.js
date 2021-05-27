@@ -1,9 +1,14 @@
 import React from 'react'
+import "./style.css"
+import "../../styles/App.css"
 
 const Footer = () => {
     return (
         <div>
-            <p>Made by the Quizengamot.</p>
+            <footer>
+                <p>Made by the Quizengamot.</p>
+                <p>© 2021 Knowsy Inc.</p>
+            </footer>
         </div>
     )
 }
