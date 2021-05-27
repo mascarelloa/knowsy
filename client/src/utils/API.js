@@ -18,6 +18,14 @@ export default {
 // in user profile or something of the like except for getQuiz which can be used to get
 // the page for a single quiz based on results returned from an above method.
 
+  searchUserQuiz: function(data){
+    return axios.get("/api/quiz/user/search", data);
+  },
+  
+  getUserQuiz: function(data){
+    return axios.get("/api/quiz/user", data);
+  },
+
   // Gets a specific quiz by its id
   getQuiz: function(id) {
     return axios.get("/api/quiz/" + id);

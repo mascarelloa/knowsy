@@ -11,8 +11,7 @@ router.route('/search')
   .get(quizController.searchAll);
 
 // Matches with "/api/quiz/:id"
-router
-  .route("/:id")
+router.route("/:id")
   .get(quizController.findOne)
   .put(quizController.update)
   .delete(quizController.remove);
@@ -21,4 +20,11 @@ router
 router.route('/new')
   .post(quizController.create);
 
+// Matches with api/quiz/user
+router.route('/user')
+  .get(quizController.findUserQuizzes);
+  
+// Matches with api/quiz/user/search
+router.route('/user/search')
+  .get(quizController.searchUserQuizzes);
 module.exports = router;
