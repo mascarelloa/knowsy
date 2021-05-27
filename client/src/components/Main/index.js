@@ -1,9 +1,10 @@
 import React from 'react'
+import Slideshow from '../Slideshow'
 
 const Main = () => {
     return (
         <div>
-            <p>Stuff.</p>
+            <Slideshow />
         </div>
     )
 }

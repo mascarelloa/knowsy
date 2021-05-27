@@ -8,6 +8,11 @@ const Header = () => {
                 <div class="logo">
                     <img src="https://tinyurl.com/jrhrwj6d"/>
                 </div>
+
+                <div className="user">
+          <a href="#">Login</a>
+          <button>Sign Up</button>
+        </div>
             </div>
         </div>
     )
