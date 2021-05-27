@@ -4,11 +4,11 @@ const quizController = require("../../controllers/quizController");
 // Matches with "/api/quiz"
 router.route("/")
   .get(quizController.filterAll)
-//   .post(quizController.create);
+
 
 // Matches with /api/quiz/search
 router.route('/search')
-    .get(quizController.searchAll);
+  .get(quizController.searchAll);
 
 // Matches with "/api/quiz/:id"
 router
@@ -16,5 +16,9 @@ router
   .get(quizController.findOne)
   .put(quizController.update)
   .delete(quizController.remove);
+
+// Matches with /api/quiz/new
+router.route('/new')
+  .post(quizController.create);
 
 module.exports = router;
