@@ -9,6 +9,8 @@ module.exports = {
 // This will likely take the shape of different API calls since the validation has to be through the User Model.
 
 // Finds all of our quizes to be displayed
+// checks to see whether the params include tags and filters all of the quizes found.
+// The two functions below only show publically available quizzes.
 filterAll: function(req, res) {
 
     try{
@@ -36,7 +38,7 @@ filterAll: function(req, res) {
 
       
   },
-//   Finds all Quizes written by a specific creator. 
+//   Finds all Quizes written by a specific creator. Can be passes an author, title or both.
   searchAll: function(req, res) {
       try{
           if (req.body.title && !req.body.author) {
@@ -47,6 +49,7 @@ filterAll: function(req, res) {
             .sort({ title: 1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+
           } else if (!req.body.title && req.body.author){
             Quiz
             .find({ })
@@ -55,6 +58,7 @@ filterAll: function(req, res) {
             .sort({ title: 1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+
           } else if(req.body.title && req.body.author){
             Quiz
             .find({ })
@@ -64,6 +68,7 @@ filterAll: function(req, res) {
             .sort({ title: 1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
+
           }else {
             return res.status(400).json({ message: "Please either a title, author or both to search for."});
           }
@@ -72,11 +77,12 @@ filterAll: function(req, res) {
       }
   },
 
+// All of the requests below do not take into account the public availability of quizzes.
+
 //   Finds one Quiz
 findOne: function(req, res) {
     Quiz
       .findById(req.params.id)
-      .where('public').equals(true)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -115,4 +121,5 @@ findOne: function(req, res) {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  
 };
