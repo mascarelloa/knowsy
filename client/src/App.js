@@ -32,7 +32,7 @@ const AuthExample = () => (
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route exact path="/search" component={Search} />
-          <Route exact path="/create" component={Create} />
+          <PrivateRoute exact path="/create" component={Create} />
           <Route exact path="/categories" component={Categories} />
           <Route path="/public" component={PublicRoute} />
           <Route path="/login" component={Login} />

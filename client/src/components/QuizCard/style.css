@@ -1,0 +1,43 @@
+.card-container {
+display: flex;
+justify-content: space-around;
+margin-left:10%;
+margin-right:10%;
+margin-top:50px;
+}
+
+
+.card {
+    width:20%;
+    height:150px;
+    box-shadow: 0 0 20px rgb(235, 235, 235);
+
+}
+
+.card-content {
+
+}
+
+h1 {
+font-family:poppins;
+font-weight:700;
+font-size:20px;
+
+}
+
+.card-body {
+
+}
+
+.card-tags {
+display:flex;
+flex-direction:row;
+}
+
+
+.card-tags p {
+    background:rgb(238, 238, 238);
+    border-radius:4px;
+    padding:5px;
+    margin-left:5px;
+}
