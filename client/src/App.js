@@ -1,3 +1,4 @@
+
 import React from 'react'
 import {
   BrowserRouter as Router,
@@ -6,9 +7,14 @@ import {
   Switch
 } from 'react-router-dom';
 import Auth from "./utils/Auth";
+import './styles/App.css';
+import Search from './pages/Search'
+import Home from './pages/Home.js'
+import Create from './pages/Create.js';
+import Categories from './pages/Categories.js';
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Header from './components/Header';
 import Navbar from './components/Navbar';
-import Main from './components/Main';
 import Footer from './components/Footer';
 import Login from "./components/Login";
 import Register from "./components/Register";
@@ -25,6 +31,10 @@ const AuthExample = () => (
         <Header />
         <Navbar />
         <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/search" component={Search} />
+          <Route exact path="/create" component={Create} />
+          <Route exact path="/categories" component={Categories} />
           <Route path="/public" component={PublicRoute} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />

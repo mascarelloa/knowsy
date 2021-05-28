@@ -38,22 +38,23 @@ function Navbar() {
       <div className="navbar">
 
         <div className="right">
+
           <Link to="/">
             <span>
-              <FaHome />
+              <FaHome className="icon" />
             </span>
             </Link>
           <Link to="/public">All Quizzes</Link>
           <Link to="/protected">Categories</Link>
 
           <button id="create">
-            Create <FaPlus />
+            Create <FaPlus className="plus" />
           </button>
         </div>
-
+    
         <form>
           <input type="text" placeholder="Find a quiz..." name="search" />
-          <button id="search" type="submit">
+          <button class="icon" id="search" type="submit">
             <ImSearch />
           </button>
         </form>

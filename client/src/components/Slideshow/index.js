@@ -16,6 +16,7 @@ const Slideshow = () => {
           </div>
           <div className="slide">
             <h1 className="slide-content" >hola</h1>
+
           </div>
           
         </div>

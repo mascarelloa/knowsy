@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../utils/UserContext";
 import "./style.css"
+import logo from "../../logo2.png"
 
 function Header() {
 
@@ -30,7 +31,8 @@ function Header() {
         <div>
             <div className="header">
                 <div className="logo">
-                    <img src="https://tinyurl.com/jrhrwj6d"/>
+                    <img src={logo}/>
+
                 </div>
 
                 <div className="user">
