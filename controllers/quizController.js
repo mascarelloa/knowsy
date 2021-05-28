@@ -41,37 +41,17 @@ filterAll: function(req, res) {
 //   Finds all Quizes written by a specific creator. Can be passes an author, title or both.
   searchAll: function(req, res) {
       try{
-          if (req.body.title && !req.body.author) {
+           if (!req.body.title){
+
+            return res.status(400).json({ message: "Please enter a title to search for."});
+
+          } else {
             Quiz
-            .find({ })
-            .where('title').equals(req.body.title)
+            .find({'title': {'$regex': req.body.title}})
             .where('public').equals(true)
             .sort({ title: 1 })
             .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-
-          } else if (!req.body.title && req.body.author){
-            Quiz
-            .find({ })
-            .where('author').equals(req.body.author)
-            .where('public').equals(true)
-            .sort({ title: 1 })
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-
-          } else if(req.body.title && req.body.author){
-            Quiz
-            .find({ })
-            .where('author').equals(req.body.author)
-            .where('title').equals(req.body.title)
-            .where('public').equals(true)
-            .sort({ title: 1 })
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err));
-
-          }else {
-            return res.status(400).json({ message: "Please either a title, author or both to search for."});
-          }
+            .catch(err => res.status(422).json(err));          }
       } catch (err){
           throw err;
       }
