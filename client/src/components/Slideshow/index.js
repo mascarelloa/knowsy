@@ -6,16 +6,17 @@ const Slideshow = () => {
   return (
     <div>
       <div id="slideshow">
-        <div class="slide-wrapper">
-          <div class="slide">
-            <h1 class="slide-content">Test your knowledge!</h1>
-          
+        <div className="slide-wrapper">
+          <div className="slide">
+            <h1 className="slide-content">Quiz of the day!</h1>
+            <button><BsListCheck /> Take</button>
           </div>
-          <div class="slide">
-            <h1 class="slide-content" id="dark">Quiz your friends!</h1>
+          <div className="slide">
+            <h1 className="slide-content" id="dark">ciao</h1>
           </div>
-          <div class="slide">
-            <h1 class="slide-content" >Create study guides!</h1>
+          <div className="slide">
+            <h1 className="slide-content" >hola</h1>
+
           </div>
           
         </div>
