@@ -29,7 +29,7 @@ function ProtectedRoute() {
 				console.log('Error fetching authorized user.');
 			});
 
-	});
+	}, []);
 
 	return (
 		<div className="container">

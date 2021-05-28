@@ -1,7 +1,31 @@
-import React from 'react'
+import React, { useEffect, useState, useContext } from "react";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../utils/UserContext";
 import "./style.css"
 
-const Header = () => {
+function Header() {
+
+    const [user, dispatch] = useContext(UserContext);
+
+    const [open, setOpen] = useState(false);
+    const [width, setWidth] = useState(window.innerWidth);
+  
+    const updateWidth = () => {
+      if (open && width > 991) {
+        setOpen(false);
+      }
+      setWidth(window.innerWidth)
+    };
+  
+    useEffect(() => {
+  
+      window.addEventListener("resize", updateWidth);
+  
+      return () => {
+        window.removeEventListener("resize", updateWidth);
+      }
+    }, [])
+
     return (
         <div>
             <div className="header">
@@ -10,8 +34,8 @@ const Header = () => {
                 </div>
 
                 <div className="user">
-          <a href="#">Login</a>
-          <button>Sign Up</button>
+          <Link to="/login">Login</Link>
+          <Link to="/register">Sign Up</Link>
         </div>
             </div>
         </div>
