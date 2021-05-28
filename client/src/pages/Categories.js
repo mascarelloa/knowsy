@@ -1,12 +1,25 @@
-import React from 'react'
-
+import React, { useState, useEffect } from "react";
+import QuizCard from "../components/QuizCard";
+import "../components/QuizCard/style.css";
+import API from "../utils/API";
 
 const Categories = () => {
-    return (
-        <div>
-           <p>quizzes by selected category on this page.</p>
-        </div>
-    )
-}
+  const [quizzes, setQuizzes] = useState([]);
+  useEffect(() => {
+    loadQuizzes();
+  }, []);
 
-export default Categories
+  function loadQuizzes() {
+    API.filterQuizzesPublic()
+      .then((res) => setQuizzes(res.data))
+      .catch((err) => console.log(err));
+  }
+
+  return (
+    <div>
+      <QuizCard quizzes={quizzes} />
+    </div>
+  );
+};
+
+export default Categories;
