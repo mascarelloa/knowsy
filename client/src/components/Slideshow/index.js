@@ -8,14 +8,14 @@ const Slideshow = () => {
       <div id="slideshow">
         <div class="slide-wrapper">
           <div class="slide">
-            <h1 class="slide-content">Quiz of the day!</h1>
-            <button><BsListCheck /> Take</button>
+            <h1 class="slide-content">Test your knowledge!</h1>
+          
           </div>
           <div class="slide">
-            <h1 class="slide-content" id="dark">ciao</h1>
+            <h1 class="slide-content" id="dark">Quiz your friends!</h1>
           </div>
           <div class="slide">
-            <h1 class="slide-content" >hola</h1>
+            <h1 class="slide-content" >Create study guides!</h1>
           </div>
           
         </div>

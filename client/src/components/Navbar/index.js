@@ -11,20 +11,20 @@ const Navbar = () => {
         <div className="right">
         <a href="">
           <span>
-            <FaHome />
+            <FaHome className="icon" />
           </span>
         </a>
         <a href="">All Quizzes</a>
-        <a href="">Categories</a>
+        <a href="">All Categories</a>
 
         <button id="create">
-          Create <FaPlus />
+          Create <FaPlus className="plus" />
         </button>
 </div>
 
         <form>
           <input type="text" placeholder="Find a quiz..." name="search" />
-          <button id="search" type="submit">
+          <button class="icon" id="search" type="submit">
             <ImSearch />
           </button>
         </form>
