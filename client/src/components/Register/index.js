@@ -43,6 +43,9 @@ function Register() {
 						.catch((err) => {// No bueno, kick them
 							console.log('Error logging in.', err);
 						});
+				} else if (response.status === 500) {
+					console.log("Username already exists.");
+					alert("Username already exists.");
 				}
 			})
 			.catch((err) => {
