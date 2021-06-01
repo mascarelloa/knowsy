@@ -12,10 +12,14 @@ function RegisterForm({ onRegister }) {
 				ref={formRef}
 				onSubmit={(e) => {
 					e.preventDefault();
-					return onRegister({
-						username: userNameRef.current.value,
-						password: passwordRef.current.value
-					});
+					if (passwordRef.current.value.length < 6) {
+						alert("Password must be at least 6 characters long!");
+					} else {
+						return onRegister({
+							username: userNameRef.current.value,
+							password: passwordRef.current.value
+						});
+					}
 				}}
 			>
 				<div className="form-group">

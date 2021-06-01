@@ -7,8 +7,7 @@ const quizSchema = new Schema({
   questions: [{
     title: String, 
     choices: [String],
-    answer: Number, 
-    required: true 
+    answer: Number
   }],
   version: { type: String, required: true },
   quizStats: [{

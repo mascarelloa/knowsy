@@ -1,6 +1,6 @@
 .navbar {
     background-color: #5C1EB2;
-    height:60px;
+    height:auto;
     display:flex;
     flex-direction:row;
     justify-content:space-between;
@@ -8,6 +8,13 @@
     padding-right:1%;
     padding-left: 1%;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,.3);
+}
+
+.right {
+    display:flex;
+    flex-direction: row;
+    align-items:center;
+    
 }
 
 a, a:active, a:visited {
@@ -18,10 +25,11 @@ a, a:active, a:visited {
     text-decoration:none;
     text-transform: uppercase;
     letter-spacing:1px;
-    line-height:20;
     padding-left:10px;
     padding-right:15px;
-    padding-bottom:5px;
+    padding-bottom:0;
+    margin-top:10px;
+    margin-bottom:10px;
     transition: all 0.2s ease-in-out
 }
     
@@ -67,7 +75,9 @@ input {
     font-family:archivo;
     padding-left:5px;
     border-radius:4px;
+    margin-bottom:15px;
 }
+
 #create{
     color:#000000;
     background-color:#F7D600;
@@ -80,6 +90,7 @@ input {
     padding-left:8px;
     transition: all 0.2s ease-in-out;
     margin-left:8px;
+    margin-bottom:8px;
 }
 
 #create:hover {
@@ -89,7 +100,7 @@ input {
 
 .icon {
     position:relative;
-    top:5px;
+    top:2px;
     font-size:25px;
 }
 
@@ -98,3 +109,83 @@ input {
     top:2px;
     font-size:16px;
 }
+
+
+
+@media screen and (max-width: 1000px) {
+    .navbar {
+    
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+       
+    
+    }
+
+    .right {
+   
+        display:flex;
+        flex-direction: row;
+        align-items:center;
+        
+    }
+
+    input {
+        margin-bottom:10px;
+        width:250px;
+    }
+
+    #create{
+        font-size:16px;
+     
+    }
+    
+    #create:hover {
+       background-color: #00C2C9;
+       font-size:16px;
+    }
+
+    a, a:active, a:visited {
+        font-size:16px; 
+    }
+
+    .icon {
+       
+        font-size:23px;
+    }
+    
+    .plus {
+        font-size:15px;
+    }
+    
+  }
+
+  @media screen and (max-width: 450px) {
+    #create{
+        font-size:11px;
+     
+    }
+    
+    #create:hover {
+       font-size:11px;
+    }
+
+    a, a:active, a:visited {
+        font-size:11px;
+    }
+
+    a, a:active, a:visited {
+        font-size:11px; 
+    }
+
+    .icon {
+       
+        font-size:20px;
+    }
+    
+    .plus {
+        font-size:13px;
+    }
+
+
+  }

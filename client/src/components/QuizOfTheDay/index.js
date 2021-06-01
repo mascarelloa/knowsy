@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css";
+import "./QuizOfTheDay.css";
 import { FaListUl } from "react-icons/fa";
 
 const QuizOfTheDay = () => {

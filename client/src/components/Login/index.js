@@ -38,6 +38,9 @@ function Login() {
 						console.log(`Response in login ${JSON.stringify(response)}`);
 
 					});
+				} else { //Displays alert if unable to login
+					console.log("No user found");
+					alert("Invalid username/password!");
 				}
 			})
 			.catch((err) => {// No bueno, kick them
