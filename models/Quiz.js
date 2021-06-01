@@ -4,11 +4,21 @@ const Schema = mongoose.Schema;
 const quizSchema = new Schema({
   title: { type: String, required: true },
   author: { type: String, required: true },
-  questions: { type: Array, required: true },
+  questions: [{
+    title: String, 
+    choices: [String],
+    answer: Number, 
+    required: true 
+  }],
   version: { type: String, required: true },
-  takenBy: { type: Array },
+  quizStats: [{
+    takenBy: String, 
+    score: Number, 
+    dateTaken: Date
+  }],
   public: {type: Boolean, required: true},
-  tags: { type: Array, required: true }
+  adult: {type: Boolean, required: true},
+  tags: { type: [String], required: true }
 });
 
 const Quiz = mongoose.model("Quiz", quizSchema);
