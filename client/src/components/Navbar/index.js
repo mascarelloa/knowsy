@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 // import AuthButton from "../AuthButton";
 import { UserContext } from "../../utils/UserContext";
-import "./style.css";
+import "./Navbar.css";
 import { ImSearch } from "react-icons/im";
 import { FaHome, FaPlus } from "react-icons/fa";
 
@@ -45,12 +45,26 @@ function Navbar() {
             </span>
             </Link>
           <Link to="/public">All Quizzes</Link>
-          <Link to="/protected">Categories</Link>
-
-          <Link to="/create" id="create">
+          
+          <div className="dropdown">
+          <Link className="dropbtn" to="/protected">All Categories</Link>
+          
+          <div class="dropdown-content">
+    <Link to="#">Math</Link>
+    <Link to="#">Science</Link>
+    <Link to="#">Geography</Link>
+    <Link to="#">History</Link>
+    <Link to="#">Entertainment</Link>
+    <Link to="#">Sports</Link>
+    <Link to="#">Just for Fun</Link>
+  
+  
+          </div>
+        </div>
+       <Link to="/create" id="create">
             Create <FaPlus className="plus" />
           </Link>
-        </div>
+          </div>
     
         <form>
           <input type="text" placeholder="Find a quiz..." name="search" />
@@ -60,6 +74,7 @@ function Navbar() {
         </form>
       </div>
     </div>
+   
   );
 };
 

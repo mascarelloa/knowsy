@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css"
+import "./CategoryCards.css"
 import math from "../../3.png"
 import arts from "../../4.png"
 import geography from "../../2.png"
@@ -19,11 +19,11 @@ const CategoryCards = () => {
                 <h1>Math</h1>
             </div>
 
-
             <div className="cat-card">
-                <img src={arts} id="entertainment"/>
-                <h1>Arts</h1>
+                <img src={science} id="science"/>
+                <h1>Science</h1>
             </div>
+
 
             <div className="cat-card">
                 <img src={geography} id="geography"/>
@@ -36,8 +36,8 @@ const CategoryCards = () => {
             </div>
 
             <div className="cat-card">
-                <img src={science} id="science"/>
-                <h1>Science</h1>
+                <img src={arts} id="entertainment"/>
+                <h1>Entertainment</h1>
             </div>
 
             <div className="cat-card">

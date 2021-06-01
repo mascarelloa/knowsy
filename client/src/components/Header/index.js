@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../utils/UserContext";
-import "./style.css"
+import "./Header.css"
 import logo from "../../logo2.png"
 
 function Header() {

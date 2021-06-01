@@ -12,4 +12,8 @@ footer {
     font-size:14px;
     font-weight:700;
     letter-spacing:1px;
+    position:sticky;
+left:0;
+bottom:0;
+right:0;
 }
