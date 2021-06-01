@@ -1,6 +1,5 @@
 * {
   margin:0;
-  
 }
 
 P {
@@ -9,5 +8,9 @@ P {
 }
 
 body {
-  min-height:100vh;
+min-height:100%
+}
+
+#root {
+  height:100HV;
 }
