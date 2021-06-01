@@ -1,0 +1,59 @@
+.signup-content {
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items:center;
+
+}
+
+.signup-content img {
+padding-left:100px;
+width:500px;
+}
+
+.form-group {
+    display:flex;
+    justify-content:left;
+    flex-direction:column;
+    align-items:left;
+    margin-top:100px;
+    text-align:left;   
+
+}
+
+.input-title p{
+    display:inline;
+    justify-content: left;
+    align-items: left;
+    align-self:left;
+    text-align:left;
+    color:#F7D600;
+    font-family: poppins;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000000;
+    text-transform:uppercase;
+    margin-bottom:20px;
+
+}
+
+.register {
+    margin-top:25px;
+}
+
+@media screen and (max-width: 960px) {
+
+    .signup-content {
+        display:flex;
+        flex-direction:column;
+        justify-content: center;
+        align-items:center;
+    
+    }
+    
+    .signup-content img {
+    padding-left:0px;
+    width:300px;
+    }
+
+}
