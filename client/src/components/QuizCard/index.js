@@ -8,7 +8,8 @@ import {FaListUl} from "react-icons/fa"
 const QuizCard = (props) => {
 
   return (
-<div> <div className="card-container">
+<div> 
+  <div className="card-container">
     {props.quizzes.map(quiz => (
      
         <div className="card">
@@ -21,8 +22,7 @@ const QuizCard = (props) => {
           </button>
             </div>
           </div>
-    
-
+  
     ))}
     </div>
     </div>
