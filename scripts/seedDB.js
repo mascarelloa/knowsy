@@ -9,19 +9,21 @@ const quizSeed = [
         author: "admin",
         questions: [
             {
-                "type": "choices",
-                "question": "What is 1+1?",
-                "answers": ["1", "2", "3", "4"]
+                "title": "What is 1+1?",
+                "choices": ["1", "2", "3", "4"],
+                "answer": 1
             },
             {
-                "type": "input",
-                "question": "What is 1+1",
-                "answers": "2"
+                "title": "What is 2+2?",
+                "choices": ["1", "2", "3", "4"],
+                "answer": 3
             }
+            
         ],
         version: "1",
         public: true,
-        takenBy: [],
+        adult: true,
+        quizStats: [],
         tags: ['educational', 'test', 'math', 'elementary']
     },
     {
@@ -29,19 +31,20 @@ const quizSeed = [
         author: "kevin",
         questions: [
             {
-                "type": "choices",
-                "question": "What is 1+1?",
-                "answers": ["1", "2", "3", "4"]
+                "title": "What is 1+1?",
+                "choices": ["1", "2", "3", "4"],
+                "answer": 1
             },
             {
-                "type": "input",
-                "question": "What is 1+1",
-                "answers": "2"
+                "title": "What is 2+2?",
+                "choices": ["1", "2", "3", "4"],
+                "answer": 3
             }
         ],
         version: "1",
         public: true,
-        takenBy: [],
+        adult: false,
+        quizStats: [],
         tags: ['educational', 'elementary']
     },
     {
@@ -49,19 +52,20 @@ const quizSeed = [
         author: "Cash",
         questions: [
             {
-                "type": "choices",
-                "question": "What is 1+1?",
-                "answers": ["1", "2", "3", "4"]
+                "title": "What is 1+1?",
+                "choices": ["1", "2", "3", "4"],
+                "answer": 1
             },
             {
-                "type": "input",
-                "question": "What is 1+1",
-                "answers": "2"
+                "title": "What is 2+2?",
+                "choices": ["1", "2", "3", "4"],
+                "answer": 3
             }
         ],
         version: "1",
         public: true,
-        takenBy: [],
+        adult: false,
+        quizStats: [],
         tags: ['educational', 'math']
     },
     {
@@ -69,19 +73,20 @@ const quizSeed = [
         author: "Annie",
         questions: [
             {
-                "type": "choices",
-                "question": "What is 1+1?",
-                "answers": ["1", "2", "3", "4"]
+                "title": "What is 1+1?",
+                "choices": ["1", "2", "3", "4"],
+                "answer": 1
             },
             {
-                "type": "input",
-                "question": "What is 1+1",
-                "answers": "2"
+                "title": "What is 2+2?",
+                "choices": ["1", "2", "3", "4"],
+                "answer": 3
             }
         ],
         version: "1",
         public: true,
-        takenBy: [],
+        adult: false,
+        quizStats: [],
         tags: ['math', 'elementary']
     },
 ];
