@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css"
+import "./CategoryCards.css"
 import math from "../../3.png"
 import arts from "../../4.png"
 import geography from "../../2.png"
