@@ -61,9 +61,9 @@ function Navbar() {
   
           </div>
         </div>
-        <button id="create">
+       <Link to="/create" id="create">
             Create <FaPlus className="plus" />
-          </button>
+          </Link>
           </div>
     
         <form>
