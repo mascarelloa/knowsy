@@ -47,9 +47,9 @@ function Navbar() {
           <Link to="/public">All Quizzes</Link>
           <Link to="/protected">Categories</Link>
 
-          <button id="create">
+          <Link to="/create" id="create">
             Create <FaPlus className="plus" />
-          </button>
+          </Link>
         </div>
     
         <form>
