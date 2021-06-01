@@ -15,6 +15,7 @@ import Categories from './pages/Categories.js';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Quiz from "./pages/Quiz"
 import Login from "./components/Login";
 import Register from "./components/Register";
 import PublicRoute from "./pages/PublicRoute";
@@ -32,6 +33,7 @@ const AuthExample = () => (
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route exact path="/search" component={Search} />
+          <Route exact path="/quiz/:id" component={Quiz} />
           <PrivateRoute exact path="/create" component={Create} />
           <Route exact path="/categories" component={Categories} />
           <Route path="/public" component={PublicRoute} />
