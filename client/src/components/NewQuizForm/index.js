@@ -46,14 +46,19 @@ const NewQuizForm = (onCreate) => {
         const updatedQuestions = [...questions];
         if (e.target.className === "choices") {
             updatedQuestions[e.target.dataset.idx].choices[e.target.id] = e.target.value;
-            // console.log(updatedQuestions);
             setQuestions(updatedQuestions);
         } else {
             // [index] and [name]
             updatedQuestions[e.target.dataset.idx][e.target.className] = e.target.value;
-            // console.log(updatedQuestions);
             setQuestions(updatedQuestions);
         }
+    }
+
+    const removeQuestion = e => {
+        const questionName = e.target.name;
+        console.log(questionName);
+        const updatedQuestions = [...questions];
+        setQuestions(updatedQuestions.filter(question => question.question !== questionName));
     }
 
     return (
@@ -94,6 +99,7 @@ const NewQuizForm = (onCreate) => {
 
                         return (
                             <div key={index}>
+                                <button name={questions[index].question} onClick={removeQuestion}>Remove</button>
                                 <label htmlFor={question}>{`Question ${index + 1}`}</label>
                                 <input className="question" type="text" name="question" data-idx={index} placeholder="Question Here" value={questions[index].question} onChange={handleInputChange} />
                                 <br />
