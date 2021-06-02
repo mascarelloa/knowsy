@@ -10,20 +10,21 @@ const QuizCard = (props) => {
 
   return (
 <div> 
-  <div className="card-container">
+  <div className="quiz-card-container">
     {props.quizzes.map(quiz => (
      
-        <div className="card">
-            <div className="card-title"><h1>{quiz.title}</h1>
+        <div className="quiz-card">
+            <div className="quiz-card-title"><h1>{quiz.title}</h1>
             <h2>by: {quiz.author}</h2></div>
-            <div className="card-body">
-              <div className="card-tags">{quiz.tags.map(tag => (<p>#{tag}</p>))}</div>
-              <Link to={"/quiz/" + quiz._id}>
-              <button>
-            <FaListUl id="take-qotd" /> Take Quiz
+            <div className="quiz-card-body">
+              <div className="quiz-card-tags">{quiz.tags.map(tag => (<p>#{tag}</p>))}</div>
+             
+            </div>
+            <Link to={"/quiz/" + quiz._id}>
+              <button id="quiz-card-btn">
+             Take Quiz
           </button>
           </Link>
-            </div>
           </div>
   
     ))}
