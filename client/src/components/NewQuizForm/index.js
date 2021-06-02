@@ -20,7 +20,7 @@ const NewQuizForm = (onCreate) => {
 
     const blankQuestion = {
         question: '',
-        choices: [,,,,],
+        choices: ["", "", "", ""],
         answer: ''
     }
 
@@ -39,10 +39,17 @@ const NewQuizForm = (onCreate) => {
 
     const handleInputChange = e => {
         const updatedQuestions = [...questions];
-        updatedQuestions[e.target.dataset.idx][e.target.className] = e.target.value;
-        setQuestions(updatedQuestions);
+        if (e.target.className === "choices") {
+            updatedQuestions[e.target.dataset.idx].choices[e.target.id] = e.target.value;
+            // console.log(updatedQuestions);
+            setQuestions(updatedQuestions);
+        } else {
+            // [index] and [name]
+            updatedQuestions[e.target.dataset.idx][e.target.className] = e.target.value;
+            // console.log(updatedQuestions);
+            setQuestions(updatedQuestions);
+        }
     }
-
 
     return (
         <form
@@ -75,40 +82,29 @@ const NewQuizForm = (onCreate) => {
                 <button onClick={handleAddQuestion}>Add Question</button>
 
                 {
-                    questions.map((value, index) => {
+                    questions.map((quest, index) => {
                         let question = `question-${index}`;
                         let choice = `choice-${index}`;
                         let answer = `answer-${index}`;
 
                         return (
                             <div key={index} id={index}>
-                                <label htmlFor={question}>{`Question #${index + 1}`}</label>
+                                <label htmlFor={question}>{`Question ${index + 1}`}</label>
                                 <input className="question" type="text" name="question" data-idx={index} placeholder="Question Here" value={questions[index].question} onChange={handleInputChange} />
+                                <br />
 
-                                {/* ToDo: Find a solution to get the choices into the state. Current code does not work (possibly the syntax of the value on line 92?) Once working, will convert to additional component. */}
-
-                                <div>
-                                    <label>Choice #1: </label>
-                                    <input className="choices" type="text" placeholder="Choice Here" data-idx={index} value={questions[index].choices[0]} onChange={handleInputChange}/>
-                                    <input id={choice + 'abox'} type="radio" name={answer} data-idx={index} value={`${choice}a`} onClick={selectChoice} />
-                                    <br />
-
-                                    <label>Choice #2: </label>
-                                    <input className="choices" type="text" placeholder="Choice Here" data-idx={index} value={questions[index].choices[1]} />
-                                    <input id={choice + 'bbox'} type="radio" name={answer} data-idx={index} value={`${choice}b`} onClick={selectChoice} />
-                                    <br />
-
-                                    <label>Choice #3: </label>
-                                    <input className="choices" type="text" placeholder="Choice Here" data-idx={index} value={questions[index].choices[2]} />
-                                    <input id={choice + 'cbox'} type="radio" name={answer} data-idx={index} value={`${choice}c`} onClick={selectChoice} />
-                                    <br />
-
-                                    <label>Choice #4: </label>
-                                    <input className="choices" type="text" placeholder="Choice Here" data-idx={index} value={questions[index].choices[3]} />
-                                    <input id={choice + 'dbox'} type="radio" name={answer} data-idx={index} value={`${choice}d`} onClick={selectChoice} />
-
-                                </div>
-
+                                {
+                                    quest.choices.map((cho, idx) => {
+                                        return (
+                                            <div key={idx}>
+                                                <label>{`Choice ${idx + 1}: `}</label>
+                                                <input id={idx} className="choices" type="text" placeholder="Choice Here" data-idx={index} value={questions[index].choices[idx]} onChange={handleInputChange} />
+                                                <input id={choice + 'abox'} type="radio" name={answer} data-idx={index} value={`${choice}a`} onClick={selectChoice} />
+                                                <br />
+                                            </div>
+                                        )
+                                    })
+                                }
 
                                 <label htmlFor={answer}>Answer: </label>
                                 <input className="answer" type="text" name={answer} data-idx={index} value={questions[index].answer} onChange={handleInputChange} />
