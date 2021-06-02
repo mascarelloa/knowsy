@@ -19,9 +19,9 @@ const NewQuizForm = (onCreate) => {
     }
 
     const blankQuestion = {
-        question: '',
+        question: "",
         choices: ["", "", "", ""],
-        answer: ''
+        answer: ""
     }
 
     const [questions, setQuestions] = useState([
@@ -34,7 +34,12 @@ const NewQuizForm = (onCreate) => {
     }
 
     const selectChoice = e => {
+        const copiedAnswer = document.getElementById(e.target.value).value;
         document.getElementById(e.target.name).value = document.getElementById(e.target.value).value;
+        const updatedQuestions = [...questions];
+        updatedQuestions[e.target.dataset.idx].answer = copiedAnswer;
+        setQuestions(updatedQuestions);
+
     }
 
     const handleInputChange = e => {
@@ -88,7 +93,7 @@ const NewQuizForm = (onCreate) => {
                         let answer = `answer-${index}`;
 
                         return (
-                            <div key={index} id={index}>
+                            <div key={index}>
                                 <label htmlFor={question}>{`Question ${index + 1}`}</label>
                                 <input className="question" type="text" name="question" data-idx={index} placeholder="Question Here" value={questions[index].question} onChange={handleInputChange} />
                                 <br />
@@ -99,7 +104,7 @@ const NewQuizForm = (onCreate) => {
                                             <div key={idx}>
                                                 <label>{`Choice ${idx + 1}: `}</label>
                                                 <input id={idx} className="choices" type="text" placeholder="Choice Here" data-idx={index} value={questions[index].choices[idx]} onChange={handleInputChange} />
-                                                <input id={choice + 'abox'} type="radio" name={answer} data-idx={index} value={`${choice}a`} onClick={selectChoice} />
+                                                <input id={choice + 'abox'} type="radio" name={answer} data-idx={index} value={idx} onClick={selectChoice} />
                                                 <br />
                                             </div>
                                         )
@@ -107,7 +112,7 @@ const NewQuizForm = (onCreate) => {
                                 }
 
                                 <label htmlFor={answer}>Answer: </label>
-                                <input className="answer" type="text" name={answer} data-idx={index} value={questions[index].answer} onChange={handleInputChange} />
+                                <input id={answer} className="answer" type="text" name={answer} data-idx={index} value={questions[index].answer} onChange={handleInputChange} />
                             </div>
                         )
                     })
