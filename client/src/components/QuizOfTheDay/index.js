@@ -1,18 +1,43 @@
 import React from "react";
 import "./QuizOfTheDay.css";
-import { FaListUl } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 const QuizOfTheDay = () => {
   return (
     <div>
       <div className="qotd-wrapper">
         <div className="qotd-container">
-          <h1>Quiz of the day!</h1>
-            <h2>Quiz Title Here</h2>
+          <div className="qotd-content">
+          <h1>Randomizer!</h1>
+            <h2>Try a random quiz...</h2>
           <button>
-            <FaListUl id="take-qotd" /> Take Quiz
+            Take Quiz <FaArrowRight id="take-qotd" />
           </button>
         </div>
+        </div>
+
+        <div className="qotd-container">
+        <div className="qotd-content">
+          <h1>Quiz Bank!</h1>
+            <h2>Browse all quizzes...</h2>
+          <button>
+             View All <FaArrowRight id="take-qotd" />
+          </button>
+        </div>
+        </div>
+
+        <div className="qotd-container">
+        <div className="qotd-content">
+          <h1>Create!</h1>
+            <h2>Make your own quiz...</h2>
+          <button>
+             Quiz Maker <FaArrowRight id="take-qotd" />
+          </button>
+        </div>
+        </div>
+
+
+
       </div>
     </div>
   );

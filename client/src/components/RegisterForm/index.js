@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import './RegisterForm.css'
-import knowsy from "../../knowsy.png"
+import knowsy4 from "../../knowsy4.png"
 // class RegisterForm extends React.Component {
 function RegisterForm({ onRegister }) {
 	// refs
@@ -26,7 +26,7 @@ function RegisterForm({ onRegister }) {
 				}}
 			>
 				<div className="signup-content">
-					
+				<img src={knowsy4}/>
 				<div className="form-group"><h1>Sign Up!</h1>
 					<input className="form-control" ref={userNameRef} type='text' name="username" placeholder='Enter Username' /><div className="input-title"><p>Username</p></div><br />
 					<input className="form-control" ref={emailRef} type='text' name="email" placeholder='Enter Email' /><div className="input-title"><p>Email</p></div><br />
@@ -35,7 +35,7 @@ function RegisterForm({ onRegister }) {
 					<div className="input-title"><p>Password</p></div><br />
 					<button className="register" type='submit'>Submit</button>
 				</div>
-				<img src={knowsy}/>
+				
 				</div>
 			</form>
 	)
