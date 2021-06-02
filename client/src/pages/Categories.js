@@ -3,18 +3,23 @@ import QuizCard from "../components/QuizCard";
 import "../components/QuizCard/QuizCard.css";
 import API from "../utils/API";
 
-const Categories = () => {
+const Categories = (props) => {
   const [quizzes, setQuizzes] = useState([]);
+  
   useEffect(() => {
-    loadQuizzes();
-  }, []);
+    
+    loadQuizzes(props.location.state);
 
-  function loadQuizzes() {
-    API.filterQuizzesPublic()
+  }, []);
+  console.log(props.location.state);
+
+  function loadQuizzes(data) {
+    console.log(data);
+    API.filterQuizzesPublic(data)
       .then((res) => setQuizzes(res.data))
       .catch((err) => console.log(err));
   }
-
+console.log(quizzes)
   return (
     <div>
       <QuizCard quizzes={quizzes} />

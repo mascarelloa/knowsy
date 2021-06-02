@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import API from "../utils/API";
+import { useParams } from "react-router-dom";
+import "../components/QuestionCard/QuestionCard.css";
 import QuestionCard from "../components/QuestionCard";
-import { Link, useParams } from "react-router-dom";
 
 
-const TakeQuiz = (props) => {
+const TakeQuiz = () => {
   const [quiz, setQuiz] = useState([]);
 
 
@@ -15,12 +16,11 @@ const TakeQuiz = (props) => {
         .catch(err => console.log(err));
     }, [])
 
-  
+
 
   return (
-    <div>
-      <QuestionCard quiz={quiz} />
-    </div>
+    <QuestionCard quiz={quiz} />
+
   );
 };
 

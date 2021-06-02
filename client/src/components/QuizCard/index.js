@@ -13,7 +13,7 @@ const QuizCard = (props) => {
   <div className="card-container">
     {props.quizzes.map(quiz => (
      
-        <div className="card">
+        <div className="card" key={quiz.id}>
             <div className="card-title"><h1>{quiz.title}</h1>
             <h2>by: {quiz.author}</h2></div>
             <div className="card-body">

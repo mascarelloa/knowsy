@@ -1,11 +1,13 @@
 import React from "react";
-import "./CategoryCards.css"
-import math from "../../3.png"
-import arts from "../../4.png"
-import geography from "../../2.png"
-import history from "../../5.png"
-import science from "../../1.png"
-import sports from "../../6.png"
+import "./CategoryCards.css";
+import math from "../../3.png";
+import arts from "../../4.png";
+import geography from "../../2.png";
+import history from "../../5.png";
+import science from "../../1.png";
+import sports from "../../6.png";
+import { Link } from "react-router-dom";
+
 
 
 const CategoryCards = () => {
@@ -15,7 +17,13 @@ const CategoryCards = () => {
             <h2>Get Started!</h2>
         <div className="cat-container">
             <div className="cat-card">
-                <img src={math} id="math"/>
+                <Link to={{
+                    pathname:'/categories',
+                    state: {
+                        tags: "test"
+                    }
+                }}>
+                    <img src={math} id="math"/> </Link>
                 <h1>Math</h1>
             </div>
 
