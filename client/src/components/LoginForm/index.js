@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import './LoginForm.css'
-import knowsy2 from "../../knowsy2.png"
+import knowsy3 from "../../knowsy3.png"
 
 function LoginForm({ onLogin }) {
 
@@ -20,8 +20,8 @@ function LoginForm({ onLogin }) {
 				}}
 			>
 				<div className="login-content">
-					<img src={knowsy2}/>
-				<div className="form-group"><h1>Welcome back!</h1>
+				<img src={knowsy3}/>
+				<div className="form-group">	<h1>Welcome back!</h1>
 					<input className="form-control" ref={userNameRef} type='text' name="username" placeholder='Enter Username' /><div className="input-title"><p>Username</p></div><br />
 					
 					<input className="form-control" ref={passwordRef} type='password' name="password" placeholder='Password' /><div className="input-title"><p>Password</p></div><br />

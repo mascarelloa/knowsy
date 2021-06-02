@@ -42,8 +42,9 @@ const AuthExample = () => (
           <PrivateRoute path="/protected" component={ProtectedRoute} />
           {/* <Route component={NoMatch} /> */}
         </Switch>
-        <Footer />
+        
       </div>
+      <Footer />
     </Router>
   </UserProvider>
 )

@@ -6,13 +6,14 @@ import geography from "../../2.png"
 import history from "../../5.png"
 import science from "../../1.png"
 import sports from "../../6.png"
+import categories from "../../categories.png"
 
 
 const CategoryCards = () => {
   return (
     <div>
         <div className="cat-wrapper">
-            <h2>Get Started!</h2>
+            <img src={categories}/>
         <div className="cat-container">
             <div className="cat-card">
                 <img src={math} id="math"/>
