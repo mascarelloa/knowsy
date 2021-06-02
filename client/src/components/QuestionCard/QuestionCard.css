@@ -1,4 +1,15 @@
-.card-container {
+.quiz-container {
+  display:flex;
+  justify-content:center;
+  margin-top:50px;
+
+}
+
+
+
+
+
+/* .card-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -75,4 +86,4 @@ width:100%;
 min-width:100%;
   }
 
-}
+} */

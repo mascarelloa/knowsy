@@ -8,15 +8,15 @@ const QuestionCard = (props) => {
 
   return (
 <div> 
-  <div className="card-container">
+  <div className="quiz-container">
     
-        <div className="card">
-            <div className="card-title"><h1>{props.quiz.title}</h1>
+        <div className="quiz">
+            <div className="quiz-title"><h1>{props.quiz.title}</h1>
             <h2>by: {props.quiz.author}</h2></div>
-            <div className="card-body">
+            <div className="quiz-body">
               <Link to={"/"}>
               <button>
-            <FaListUl id="take-qotd" /> Return Home
+            Back
           </button>
           </Link>
             </div>

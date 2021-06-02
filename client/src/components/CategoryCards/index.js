@@ -7,6 +7,7 @@ import history from "../../5.png"
 import science from "../../1.png"
 import sports from "../../6.png"
 import categories from "../../categories.png"
+import { Link } from "react-router-dom"
 
 
 const CategoryCards = () => {
@@ -16,7 +17,7 @@ const CategoryCards = () => {
             <img src={categories}/>
         <div className="cat-container">
             <div className="cat-card">
-                <img src={math} id="math"/>
+                <Link to=""><img src={math} id="math"/></Link>
                 <h1>Math</h1>
             </div>
 
