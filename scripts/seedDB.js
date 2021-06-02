@@ -11,12 +11,12 @@ const quizSeed = [
             {
                 "title": "What is 1+1?",
                 "choices": ["1", "2", "3", "4"],
-                "answer": 1
+                "answer": "2"
             },
             {
                 "title": "What is 2+2?",
                 "choices": ["1", "2", "3", "4"],
-                "answer": 3
+                "answer": "4"
             }
             
         ],
@@ -33,12 +33,12 @@ const quizSeed = [
             {
                 "title": "What is 1+1?",
                 "choices": ["1", "2", "3", "4"],
-                "answer": 1
+                "answer": "2"
             },
             {
                 "title": "What is 2+2?",
                 "choices": ["1", "2", "3", "4"],
-                "answer": 3
+                "answer": "4"
             }
         ],
         version: "1",
@@ -54,12 +54,12 @@ const quizSeed = [
             {
                 "title": "What is 1+1?",
                 "choices": ["1", "2", "3", "4"],
-                "answer": 1
+                "answer": "2"
             },
             {
                 "title": "What is 2+2?",
                 "choices": ["1", "2", "3", "4"],
-                "answer": 3
+                "answer": "4"
             }
         ],
         version: "1",
@@ -75,12 +75,12 @@ const quizSeed = [
             {
                 "title": "What is 1+1?",
                 "choices": ["1", "2", "3", "4"],
-                "answer": 1
+                "answer": "2"
             },
             {
                 "title": "What is 2+2?",
                 "choices": ["1", "2", "3", "4"],
-                "answer": 3
+                "answer": "4"
             }
         ],
         version: "1",

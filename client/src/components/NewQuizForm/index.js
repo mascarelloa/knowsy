@@ -3,7 +3,7 @@ import NewQuestionForm from '../NewQuestionForm';
 import { UserContext } from "../../utils/UserContext";
 
 
-const NewQuizForm = (onCreate) => {
+const NewQuizForm = () => {
 
     // Allows us to access the current user
     const [user, dispatch] = useContext(UserContext);
@@ -61,17 +61,37 @@ const NewQuizForm = (onCreate) => {
         setQuestions(updatedQuestions.filter(question => question.question !== questionName));
     }
 
+    const create = (data) => {
+    	fetch('api/quiz/new', {
+    		method: 'POST',
+    		body: JSON.stringify(data),
+    		headers: {
+    			'Content-Type': 'application/json'
+    		},
+    		credentials: 'include'
+    	})
+    		.then((response) => {
+    			console.log(response);
+    		})
+    		.catch((err) => {
+    			console.log('Error creating quiz.', err);
+    		});
+    }
+
     return (
         <form
             ref={formRef}
             onSubmit={(e) => {
                 e.preventDefault();
-                // return onCreate({
-                //     title: titleRef.current.value,
-                //     author: user.username,
-                //     tags: tagsRef.current.value,
-                //     public: visibility
-                // });
+                return create({
+                    title: titleRef.current.value,
+                    author: user.username,
+                    questions: questions,
+                    version: "1",
+                    public: visibility,
+                    adult: false,
+                    tags: tagsRef.current.value,
+                });
             }}
         >
             <div className="form-group">
@@ -124,6 +144,7 @@ const NewQuizForm = (onCreate) => {
                     })
                 }
 
+                {/* ToDo: Add parameters to disable submit button if fields are missing! */}
                 <button className="btn btn btn-primary" type='submit'>Submit</button>
             </div>
         </form>
