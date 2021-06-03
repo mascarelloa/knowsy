@@ -26,7 +26,7 @@ module.exports = {
 	},
 	register: function (req, res, next) {
 		console.log('/register handler', req.body);
-		Account.register(new Account({ username: req.body.username }), req.body.password, (err, account) => {
+		Account.register(new Account({ username: req.body.username, email: req.body.email, dob: req.body.dob }), req.body.password, (err, account) => {
 			if (err) {
 				return res.status(500).send({ error: err.message });
 			}
