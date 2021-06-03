@@ -26,8 +26,8 @@ export default {
     return axios.get("/api/quiz/user/search", data);
   },
   
-  getUserQuiz: function(data){
-    return axios.get("/api/quiz/user", data);
+  getUserQuiz: function(author){
+    return axios.get("/api/quiz/user/" + author);
   },
 
   // Gets a specific quiz by its id
@@ -35,11 +35,11 @@ export default {
     return axios.get("/api/quiz/" + id);
   },
 
-  // Deletes the book with the given id
+  // Deletes the quiz with the given id
   deleteQuiz: function(id) {
     return axios.delete("/api/quiz/" + id);
   },
-  // Saves a book to the database
+  // Saves a quiz to the database
   saveQuiz: function(data) {
     return axios.post("/api/quiz/new", data);
   },
