@@ -38,7 +38,6 @@ const AuthExample = () => (
           <Route exact path="/quiz/:id" component={Quiz} />
           <Route exact path="/create" component={Create} />
           <Route exact path="/allquizzes" component={AllQuizzes} />
-          <Route path="/public" component={PublicRoute} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <PrivateRoute path="/protected" component={ProtectedRoute} />
