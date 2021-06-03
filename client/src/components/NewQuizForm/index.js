@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import { UserContext } from "../../utils/UserContext";
 import "./NewQuizForm.css";
-import { FaTrashAlt } from "react-icons/fa";
+import { TiDelete } from "react-icons/ti";
 
 const NewQuizForm = () => {
   // Allows us to access the current user.
@@ -81,6 +81,7 @@ const NewQuizForm = () => {
 
   // Allows a user to remove the clicked question from the quiz.
   const removeQuestion = (e) => {
+    console.log("clicked")
     const questionName = e.target.name;
     console.log(questionName);
     const updatedQuestions = [...questions];
@@ -133,6 +134,7 @@ const NewQuizForm = () => {
     >
       <div className="quizmaker-container">
         {/* Title of Quiz */}
+        <div className="quiz-info">
         <h4>Quiz Title:</h4>
         <input
           className="new-quiz-title"
@@ -232,9 +234,9 @@ const NewQuizForm = () => {
             <br />
           </div>
         </div>
-
-        {/* Add Question Button - is input to prevent form submission on click */}
-        <input type="button" onClick={handleAddQuestion} value="Add Question" />
+        </div>
+        <div className="quiz-questions">
+      
         {/* Question Section */}
         {questions.map((quest, index) => {
           let question = `question-${index}`;
@@ -245,14 +247,15 @@ const NewQuizForm = () => {
             <div key={index} className="question-card">
               <div>
                 {/* Question */}
-                <button
+                <button type="button" className="delete"
                   name={questions[index].question}
-                  onClick={removeQuestion}
-                >
-                  <FaTrashAlt />
-                </button>
-                <label htmlFor={question}>{`Question ${index + 1}`}</label><br/>
-                <input
+                  onClick={removeQuestion}>
+                  ✖
+                 </button><br/>
+                <h4>{`Question ${index +  1}`}</h4> 
+                <br/>
+
+                <textarea
                   className="question"
                   type="text"
                   name="question"
@@ -268,7 +271,7 @@ const NewQuizForm = () => {
                     <div key={idx}>
                       {/* Choices */}
                       <input
-                        className="radio-button"
+                        className="choice-radio"
                         id={choice + "abox"}
                         type="radio"
                         name={answer}
@@ -276,7 +279,7 @@ const NewQuizForm = () => {
                         value={idx}
                         onClick={selectChoice}
                       />
-                      <label>{`Choice ${idx + 1}: `}</label>
+            
                       <textarea
                         id={idx}
                         className="choices"
@@ -292,9 +295,12 @@ const NewQuizForm = () => {
                     
                   );
                 })}</div>
+
+
                 {/* Answer */}
-                <label htmlFor={answer}>Answer: </label>
-                <input
+                <div className="answer-container">
+                <h4>Answer </h4><br/>
+                <textarea
                   id={answer}
                   className="answer"
                   type="text"
@@ -302,15 +308,21 @@ const NewQuizForm = () => {
                   data-idx={index}
                   value={questions[index].answer}
                   onChange={handleInputChange}
+                  readOnly
                 />
+                </div>
               </div>
             </div>
           );
         })}
 
+          {/* Add Question Button - is input to prevent form submission on click */}
+          <input type="button" onClick={handleAddQuestion} value="Add Question" />
+
         <button className="btn btn btn-primary" type="submit">
           Submit
         </button>
+      </div>
       </div>
     </form>
   );
