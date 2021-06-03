@@ -6,8 +6,12 @@ export default {
 // These functions are specifically to be used for finding publically available quizzes.
 
 //   Gets all of the quizes in the db, uses filterAll in controller.
-  filterQuizzesPublic: function(data) {
-    return axios.get("/api/quiz", data);
+  filterQuizzesPublic: function(tags) {
+    return axios.get("/api/quiz/categories/" + tags);
+  },
+
+  getAll: function(){
+    return axios.get("/api/quiz");
   },
    // Searches for quizzes based on author / title uses searchAll in controller
    searchQuizzesPublic: function(data) {

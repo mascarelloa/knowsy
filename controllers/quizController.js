@@ -11,33 +11,31 @@ module.exports = {
 // Finds all of our quizes to be displayed
 // checks to see whether the params include tags and filters all of the quizes found.
 // The two functions below only show publically available quizzes.
+
+// gets all public quizzes
+getAll: function(req,res){
+  Quiz
+  .find({ })
+  .where('public').equals(true)
+  .sort({ title: 1 })
+  .then(Quiz => res.json(Quiz))
+  .catch(err => res.status(422).json(err));
+},
+
+// Filters quizzes by category
 filterAll: function(req, res) {
-
-    try{
-        if (!req.body.tags) {
-            Quiz
-            .find({ })
-            .where('public').equals(true)
-            .sort({ title: 1 })
-            .then(Quiz => res.json(Quiz))
-            .catch(err => res.status(422).json(err));
-            
-        } else {
-            Quiz
-            .find({ })
-            .where('tags').in(req.body.tags)
-            .where('public').equals(true)
-            .sort({ title: 1 })
-            .then(Quiz => res.json(Quiz))
-            .catch(err => res.status(422).json(err));
-           
-        }
-    }catch (err){
-        throw err;
-    }
-
+  
+  
+     Quiz
+     .find({ })
+     .where('tags').in(req.params.tags)
+    .where('public').equals(true)
+    .sort({ title: 1 })
+    .then(Quiz => res.json(Quiz))
+    .catch(err => res.status(422).json(err));
       
   },
+
 //   Finds all Quizes written by a specific creator. Can be passes an author, title or both.
   searchAll: function(req, res) {
       try{

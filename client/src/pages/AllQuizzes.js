@@ -10,7 +10,7 @@ const AllQuizzes = () => {
   }, []);
 
   function loadQuizzes() {
-    API.filterQuizzesPublic()
+    API.getAll()
       .then((res) => setQuizzes(res.data))
       .catch((err) => console.log(err));
   }

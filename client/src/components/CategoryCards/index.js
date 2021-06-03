@@ -17,33 +17,41 @@ const CategoryCards = () => {
             <img src={categories}/>
         <div className="cat-container">
             <div className="cat-card">
-                <Link to=""><img src={math} id="math"/></Link>
+                {/* Currently all of the Links below are hardcoded based on the image name. */}
+                {/* Not sure how to make them dynamic but they work for now. */}
+                <Link to={"/categories/math"}>
+                    <img src={math} id="math"/> </Link>
                 <h1>Math</h1>
             </div>
 
             <div className="cat-card">
-                <img src={science} id="science"/>
+            <Link to={"/categories/science"}>
+                <img src={science} id="science"/></Link>
                 <h1>Science</h1>
             </div>
 
 
             <div className="cat-card">
-                <img src={geography} id="geography"/>
+            <Link to={"/categories/geography"}>
+                <img src={geography} id="geography"/></Link>
                 <h1>Geography</h1>
             </div>
 
             <div className="cat-card">
-                <img src={history} id="history"/>
+            <Link to={"/categories/history"}>
+                <img src={history} id="history"/></Link>
                 <h1>History</h1>
             </div>
 
             <div className="cat-card">
-                <img src={arts} id="entertainment"/>
+            <Link to={"/categories/entertainment"}>
+                <img src={arts} id="entertainment"/></Link>
                 <h1>Entertainment</h1>
             </div>
 
             <div className="cat-card">
-                <img src={sports} id="sports"/>
+            <Link to={"/categories/sports"}>
+                <img src={sports} id="sports"/></Link>
                 <h1>Sports</h1>
             </div>
         </div>

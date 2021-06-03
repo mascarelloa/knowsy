@@ -12,6 +12,7 @@ import Search from './pages/Search'
 import Home from './pages/Home.js'
 import Create from './pages/Create.js';
 import AllQuizzes from './pages/AllQuizzes';
+import Categories from './pages/Categories';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -32,6 +33,7 @@ const AuthExample = () => (
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home}/>
+          <Route exact path="/categories/:tags" component={Categories}/>
           <Route exact path="/search" component={Search} />
           <Route exact path="/quiz/:id" component={Quiz} />
           <PrivateRoute exact path="/create" component={Create} />

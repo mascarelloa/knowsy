@@ -1,10 +1,13 @@
 const router = require("express").Router();
 const quizController = require("../../controllers/quizController");
 
-// Matches with "/api/quiz"
-router.route("/")
-  .get(quizController.filterAll)
+// Matches with "/api/quiz/categories/:tags"
+router.route("/categories/:tags")
+  .get(quizController.filterAll);
 
+  // matches with /api/quiz
+router.route("/")
+  .get(quizController.getAll);
 
 // Matches with /api/quiz/search
 router.route('/search')
