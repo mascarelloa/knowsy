@@ -1,7 +1,9 @@
 import React, { useContext, useRef, useState } from "react";
 import { UserContext } from "../../utils/UserContext";
 import "./NewQuizForm.css";
-import { TiDelete } from "react-icons/ti";
+import { FaPlus, FaCheck } from "react-icons/fa";
+import { GiSaveArrow } from 'react-icons/gi'
+
 
 const NewQuizForm = () => {
   // Allows us to access the current user.
@@ -157,23 +159,28 @@ const NewQuizForm = () => {
         <br />
         {/* Tag Selector */}
         <h4>Category:</h4>
-       
-        
+       <div className="cats-container">
+        <div className="right-cats">
+
           <input type="checkbox" id="Entertainment" name="Entertainment" onChange={handleTagChange}></input>
-          <label htmlFor="Entertainment">Entertainment</label>
+          <label htmlFor="Entertainment">Entertainment</label><br/>
           <input type="checkbox" id="History" name="History" onChange={handleTagChange}></input>
-          <label htmlFor="History">History</label>
+          <label htmlFor="History">History</label><br/>
           <input type="checkbox" id="Math" name="Math" onChange={handleTagChange}></input>
-          <label htmlFor="Math">Math</label>
+          <label htmlFor="Math">Math</label><br/>
           <input type="checkbox" id="Science" name="Science" onChange={handleTagChange}></input>
-          <label htmlFor="Science">Science</label>
+          <label htmlFor="Science">Science</label><br/>
+          </div>
+
+          <div className="right-cats">
           <input type="checkbox" id="Geography" name="Geography" onChange={handleTagChange}></input>
-          <label htmlFor="Geography">Geography</label>
+          <label htmlFor="Geography">Geography</label><br/>
           <input type="checkbox" id="Sports" name="Sports" onChange={handleTagChange}></input>
-          <label htmlFor="Sports">Sports</label>
+          <label htmlFor="Sports">Sports</label><br/>
           <input type="checkbox" id="JustForFun" name="JustForFun" onChange={handleTagChange}></input>
-          <label htmlFor="JustForFun">Just For Fun</label>
-        
+          <label htmlFor="JustForFun">Just For Fun</label><br/>
+        </div>
+        </div>
         
         <br></br>
         <div className="wrapper">
@@ -208,9 +215,9 @@ const NewQuizForm = () => {
             </div>
           </div>
 
-          <div className="age-rating">
+          <div className="age-range">
             {/* Adult/Everyone Radio Buttons */}
-            <h4>Set Age Rrange:</h4>
+            <h4>Set Age Range:</h4>
             <input
               className="radio-button"
               id="everyone"
@@ -317,11 +324,12 @@ const NewQuizForm = () => {
         })}
 
           {/* Add Question Button - is input to prevent form submission on click */}
-          <input type="button" onClick={handleAddQuestion} value="Add Question" />
+          <div className="button-wrapper">
+          <button className="add" type="button" onClick={handleAddQuestion} value="Add Question +">Add question <FaPlus id="plus-icon"/></button>
 
-        <button className="btn btn btn-primary" type="submit">
-          Submit
-        </button>
+        <button className="save" type="submit">
+          Save quiz <FaCheck id="save-icon"/>
+        </button></div>
       </div>
       </div>
     </form>
