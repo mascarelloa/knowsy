@@ -9,7 +9,7 @@ export default {
   filterQuizzesPublic: function(tags) {
     return axios.get("/api/quiz/categories/" + tags);
   },
-
+// Gets all of the quizzes for the allQuizzes page.
   getAll: function(){
     return axios.get("/api/quiz");
   },

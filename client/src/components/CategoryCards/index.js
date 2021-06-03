@@ -17,8 +17,8 @@ const CategoryCards = () => {
             <img src={categories}/>
         <div className="cat-container">
             <div className="cat-card">
-                {/* Currently all of the Links below are hardcoded based on the image name. */}
-                {/* Not sure how to make them dynamic but they work for now. */}
+            {/* Currently all of the Links below are hardcoded based on the image name. */}
+            {/* Not sure how to make them dynamic but they work for now. */}
                 <Link to={"/categories/math"}>
                     <img src={math} id="math"/> </Link>
                 <h1>Math</h1>
