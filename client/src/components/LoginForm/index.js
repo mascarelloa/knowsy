@@ -21,7 +21,7 @@ function LoginForm({ onLogin }) {
 			>
 				<div className="login-content">
 				<img src={knowsy3}/>
-				<div className="form-group">	<h1>Welcome back!</h1>
+				<div className="form-group login-form">	<h1>Welcome back!</h1>
 					<input className="form-control" ref={userNameRef} type='text' name="username" placeholder='Enter Username' /><div className="input-title"><p>Username</p></div><br />
 					
 					<input className="form-control" ref={passwordRef} type='password' name="password" placeholder='Password' /><div className="input-title"><p>Password</p></div><br />
