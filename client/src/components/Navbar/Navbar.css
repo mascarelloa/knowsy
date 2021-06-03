@@ -75,7 +75,7 @@ input {
     font-family:archivo;
     padding-left:5px;
     border-radius:4px;
-    margin-bottom:15px;
+    /* margin-bottom:15px; */
 }
 
 #create{
@@ -87,10 +87,13 @@ input {
     letter-spacing:1px;
     font-weight:700;
     font-size:18px;
-    padding-left:8px;
+    padding-left:15px;
     transition: all 0.2s ease-in-out;
     margin-left:8px;
     margin-bottom:8px;
+    border-radius:4px;
+    padding-top:3px;
+    padding-bottom:3px;
 }
 
 #create:hover {
@@ -106,7 +109,7 @@ input {
 
 .plus {
     position:relative;
-    top:2px;
+    top:1px;
     font-size:16px;
 }
 
@@ -149,7 +152,7 @@ input {
 
 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1040px) {
     .navbar {
     
         display:flex;
@@ -197,22 +200,22 @@ input {
     
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 510px) {
     #create{
-        font-size:11px;
+        font-size:14px;
      
     }
     
     #create:hover {
-       font-size:11px;
+       font-size:14px;
     }
 
     a, a:active, a:visited {
-        font-size:11px;
+        font-size:14px;
     }
 
     a, a:active, a:visited {
-        font-size:11px; 
+        font-size:14px; 
     }
 
     .icon {

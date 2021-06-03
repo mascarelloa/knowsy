@@ -1,10 +1,11 @@
-import React from 'react'
-
+import React from 'react';
+import NewQuizForm from '../components/NewQuizForm';
 
 const Create = () => {
     return (
         <div>
-           <p>create quiz on this page</p>
+            <h1>This is rendered on the Create page.</h1>
+           <NewQuizForm />
         </div>
     )
 }

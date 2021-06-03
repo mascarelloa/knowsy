@@ -11,7 +11,8 @@ import './styles/App.css';
 import Search from './pages/Search'
 import Home from './pages/Home.js'
 import Create from './pages/Create.js';
-import Categories from './pages/Categories.js';
+import AllQuizzes from './pages/AllQuizzes';
+import Categories from './pages/Categories';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -32,18 +33,20 @@ const AuthExample = () => (
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home}/>
+          <Route exact path="/categories/:tags" component={Categories}/>
           <Route exact path="/search" component={Search} />
           <Route exact path="/quiz/:id" component={Quiz} />
           <PrivateRoute exact path="/create" component={Create} />
-          <Route exact path="/categories" component={Categories} />
+          <Route exact path="/allquizzes" component={AllQuizzes} />
           <Route path="/public" component={PublicRoute} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <PrivateRoute path="/protected" component={ProtectedRoute} />
           {/* <Route component={NoMatch} /> */}
         </Switch>
-        <Footer />
+        
       </div>
+      <Footer />
     </Router>
   </UserProvider>
 )

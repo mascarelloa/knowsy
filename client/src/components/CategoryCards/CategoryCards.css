@@ -18,6 +18,7 @@
   grid-gap: 120px;
   margin-top: 50px;
   text-align: center;
+  margin-bottom:100px;
 }
 
 @media screen and (max-width: 875px) {
@@ -73,14 +74,20 @@
   }
 }
 
-h1 {
+.cat-card h1 {
   font-family: poppins;
-  font-size: 30px;
+  font-size: 20px;
   text-transform: uppercase;
   width: 200px;
+  color:black;
 }
 
-h2 {
+.cat-wrapper h2 {
   font-family: poppins;
   font-size: 40px;
+  text-transform:uppercase;
+  padding-left:20px;
+  padding-right:20px;
+  color:white;
+  background-color:#00C2C9;
 }

@@ -44,10 +44,10 @@ function Navbar() {
               <FaHome className="icon" />
             </span>
             </Link>
-          <Link to="/public">All Quizzes</Link>
+          <Link to="/allquizzes">All Quizzes</Link>
           
           <div className="dropdown">
-          <Link className="dropbtn" to="/protected">All Categories</Link>
+          <Link className="dropbtn" to="/">All Categories</Link>
           
           <div class="dropdown-content">
     <Link to="#">Math</Link>
@@ -61,9 +61,9 @@ function Navbar() {
   
           </div>
         </div>
-        <button id="create">
+       <Link to="/create" id="create">
             Create <FaPlus className="plus" />
-          </button>
+          </Link>
           </div>
     
         <form>

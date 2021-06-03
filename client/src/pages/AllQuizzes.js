@@ -1,26 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import QuizCard from "../components/QuizCard";
 import "../components/QuizCard/QuizCard.css";
 import API from "../utils/API";
 
-const Categories = () => {
+const AllQuizzes = () => {
   const [quizzes, setQuizzes] = useState([]);
-  
-  const {tags} = useParams()
-  console.log(tags);
   useEffect(() => {
-    loadQuizzes(tags);
-  }, [])
+    loadQuizzes();
+  }, []);
 
-  function loadQuizzes(tags) {
-    API.filterQuizzesPublic(tags)
+  function loadQuizzes() {
+    API.getAll()
       .then((res) => setQuizzes(res.data))
       .catch((err) => console.log(err));
   }
 
-  
-console.log(quizzes)
   return (
     <div>
       <QuizCard quizzes={quizzes} />
@@ -28,4 +22,4 @@ console.log(quizzes)
   );
 };
 
-export default Categories;
+export default AllQuizzes;
