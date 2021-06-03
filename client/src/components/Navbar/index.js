@@ -50,13 +50,15 @@ function Navbar() {
           <Link className="dropbtn" to="/">All Categories</Link>
           
           <div class="dropdown-content">
-    <Link to="#">Math</Link>
-    <Link to="#">Science</Link>
-    <Link to="#">Geography</Link>
-    <Link to="#">History</Link>
-    <Link to="#">Entertainment</Link>
-    <Link to="#">Sports</Link>
-    <Link to="#">Just for Fun</Link>
+    {/* Currently all of the Links below are hardcoded based on the image name. */}
+    {/* Not sure how to make them dynamic but they work for now. */}    
+    <Link to="/categories/math">Math</Link>
+    <Link to="/categories/science">Science</Link>
+    <Link to="/categories/geography">Geography</Link>
+    <Link to="/categories/history">History</Link>
+    <Link to="/categories/entertainment">Entertainment</Link>
+    <Link to="/categories/sports">Sports</Link>
+    <Link to="/categories/fun">Just for Fun</Link>
   
   
           </div>
