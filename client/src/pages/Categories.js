@@ -14,10 +14,9 @@ const Categories = () => {
   // Tags is pulled off of the parameters in the URL and passed to the API call to filter
   // properly. This needs to be passed in when linking to this page or it breaks.
   const {tags} = useParams()
-  console.log(tags);
   useEffect(() => {
     loadQuizzes(tags);
-  }, [])
+  }, [tags])
 
   function loadQuizzes(tags) {
     API.filterQuizzesPublic(tags)
