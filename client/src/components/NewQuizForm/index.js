@@ -9,7 +9,6 @@ const NewQuizForm = () => {
 
   const formRef = useRef();
   const titleRef = useRef();
-  const tagsRef = useRef();
   const descRef = useRef();
 
   // Uses state to save a boolean value for public/private.
@@ -49,6 +48,20 @@ const NewQuizForm = () => {
     const updatedQuestions = [...questions];
     updatedQuestions[e.target.dataset.idx].answer = copiedAnswer;
     setQuestions(updatedQuestions);
+  };
+
+  // Uses state to keep track of the current array of tags.
+  const [tags, setTags] = useState([]);
+
+  // Will add or remove a tag based on whether or not the checkbox is checked.
+  const handleTagChange = (e) => {
+    const updatedTags = [...tags];
+    if (e.target.checked) {
+      updatedTags.push(e.target.id);
+      setTags(updatedTags);
+    } else {
+      setTags(updatedTags.filter(tag => tag !== e.target.id))
+    }
   };
 
   // Will set the state of "questions" every time the user changes a character inside one of the inputs.
@@ -104,6 +117,7 @@ const NewQuizForm = () => {
         if (titleRef.current.value == "") {
           alert("Your quiz must have a title!");
         } else {
+          console.log(tags);
           return create({
             title: titleRef.current.value,
             author: user.username,
@@ -112,7 +126,7 @@ const NewQuizForm = () => {
             version: "1",
             public: visibility,
             adult: ageRestrict,
-            tags: tagsRef.current.value,
+            tags: tags,
           });
         }
       }}
@@ -142,16 +156,22 @@ const NewQuizForm = () => {
         {/* Tag Selector */}
         <h4>Category:</h4>
        
-        <select ref={tagsRef}>
-          <option value="none">Select Category:</option>
-          <option value="Entertainment">Entertainment</option>
-          <option value="History">History</option>
-          <option value="Math">Math</option>
-          <option value="Science">Science</option>
-          <option value="Geography">Geography</option>
-          <option value="Sports">Sports</option>
-          <option value="History">Just For Fun</option>
-        </select>
+        
+          <input type="checkbox" id="Entertainment" name="Entertainment" onChange={handleTagChange}></input>
+          <label htmlFor="Entertainment">Entertainment</label>
+          <input type="checkbox" id="History" name="History" onChange={handleTagChange}></input>
+          <label htmlFor="History">History</label>
+          <input type="checkbox" id="Math" name="Math" onChange={handleTagChange}></input>
+          <label htmlFor="Math">Math</label>
+          <input type="checkbox" id="Science" name="Science" onChange={handleTagChange}></input>
+          <label htmlFor="Science">Science</label>
+          <input type="checkbox" id="Geography" name="Geography" onChange={handleTagChange}></input>
+          <label htmlFor="Geography">Geography</label>
+          <input type="checkbox" id="Sports" name="Sports" onChange={handleTagChange}></input>
+          <label htmlFor="Sports">Sports</label>
+          <input type="checkbox" id="JustForFun" name="JustForFun" onChange={handleTagChange}></input>
+          <label htmlFor="JustForFun">Just For Fun</label>
+        
         
         <br></br>
         <div className="wrapper">
@@ -222,8 +242,8 @@ const NewQuizForm = () => {
           let answer = `answer-${index}`;
 
           return (
-            <div className="question-card">
-              <div key={index}>
+            <div key={index} className="question-card">
+              <div>
                 {/* Question */}
                 <button
                   name={questions[index].question}

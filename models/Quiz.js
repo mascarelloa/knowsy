@@ -6,18 +6,18 @@ const quizSchema = new Schema({
   author: { type: String, required: true },
   description: { type: String },
   questions: [{
-    title: String, 
+    title: String,
     choices: [String],
     answer: String
   }],
   version: { type: String, required: true },
   quizStats: [{
-    takenBy: String, 
-    score: Number, 
+    takenBy: String,
+    score: Number,
     dateTaken: Date
   }],
-  public: {type: Boolean, required: true},
-  adult: {type: Boolean, required: true},
+  public: { type: Boolean, required: true },
+  adult: { type: Boolean, required: true },
   tags: { type: [String], required: true }
 });
 
