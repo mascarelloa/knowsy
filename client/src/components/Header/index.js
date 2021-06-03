@@ -42,17 +42,20 @@ function Header() {
         <div className="user">
           {
             Auth.isAuthenticated ? (
-              <button className="btn btn-danger"
-                onClick={() => {
-                  Auth.signout(() => history.push('/login'))
-                  dispatch({
-                    type: "GET_USER",
-                    payload: {}
-                  })
-                  window.location.reload();
-                }}>
-                Logout
+              <div>
+                <Link to={"/profile/" + user.username}>My Dashboard</Link>
+                <button className="btn btn-danger"
+                  onClick={() => {
+                    Auth.signout(() => history.push('/login'))
+                    dispatch({
+                      type: "GET_USER",
+                      payload: {}
+                    })
+                    window.location.reload();
+                  }}>
+                  Logout
               </button>
+              </div>
             ) : (
               <div>
                 <Link to="/login">Login</Link>

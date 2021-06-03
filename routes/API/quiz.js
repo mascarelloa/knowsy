@@ -24,7 +24,7 @@ router.route('/new')
   .post(quizController.create);
 
 // Matches with api/quiz/user
-router.route('/user')
+router.route('/user/:user')
   .get(quizController.findUserQuizzes);
   
 // Matches with api/quiz/user/search

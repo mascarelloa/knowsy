@@ -63,7 +63,7 @@ filterAll: function(req, res) {
 findUserQuizzes: function (req, res) {
   Quiz
   .find({ })
-  .where('author').equals(req.body.author)
+  .where('author').equals(req.params.user)
   .sort({ title: 1 })
   .then(Quiz => res.json(Quiz))
   .catch(err => res.status(422).json(err));
