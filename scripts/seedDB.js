@@ -9,7 +9,7 @@ const quizSeed = [
         author: "admin",
         questions: [
             {
-                "title": "What is 1+1?",
+                "title": "1and1",
                 "choices": ["1", "2", "3", "4"],
                 "answer": "2"
             },

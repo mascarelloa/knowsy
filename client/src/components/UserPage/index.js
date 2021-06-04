@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../utils/UserContext";
+import UserQuizzes from "../UserQuizzes";
 import API from "../../utils/API";
 
 const UserPage = () => {
@@ -28,6 +29,7 @@ const UserPage = () => {
     return (
         <div>
             <h1>Welcome {user.username}!</h1>
+            <UserQuizzes quizzes={userQuizzes} />
         </div>
     )
 
