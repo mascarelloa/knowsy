@@ -1,5 +1,6 @@
 import {FaListUl} from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import API from "../../utils/API";
 import "./QuestionCard.css";
 import { UserContext } from "../../utils/UserContext";
 import React, { useContext, useRef, useState, useEffect } from 'react';
@@ -20,8 +21,12 @@ const QuestionCard = (props) => {
   // Handles keeping track of the # of questions the user has gotten correct.
   const [score, setScore] = useState();
 
+  const {id} = useParams()
   // This just allows for easier access to questions when writing logic for this code
   const questions = props.quiz.questions;
+  //sets the date for use in the put method.
+  const current = new Date();
+  const date = `${current.getMonth()+1}/${current.getDate()}/${current.getFullYear()}`;
    
 
   // This handles restarting the quiz when the page is first loaded.
@@ -64,14 +69,21 @@ const QuestionCard = (props) => {
       // This should only be used to pass all of the final results to the quiz
       // This function might need to be called in the conditional rendering since that is where we had to define the final score
       // and im not sure that this would have access to that variable. 
-     endQuiz();
+     
     }
 
   }
 
   // Updates the quiz db with stats.
-  function endQuiz() { 
-    
+  function endQuiz(data) { 
+    console.log("invoked");
+    console.log(data);
+    console.log(id);
+
+    API.updateQuiz(id, data)
+    .then(res => console.log(res.data))
+    .catch(err => console.log(err));
+  
    }
 
 // This If statement makes sure the page has props before trying to render anything. The whole app breaks if you remove it. 
@@ -82,6 +94,7 @@ if (questions) {
 
   // This if statement is the ACTUAL conditional render. This will change based on whether or not there are questions left in the array to render.
   if (currentQuestion != questions.length) { 
+    
     return (
     
 <div> 
@@ -133,6 +146,13 @@ if (questions) {
   // This else is in reference to the IF statement that deals with the conditional rendering
   } else {
     console.log(score);
+    endQuiz(
+      {quizStats: [{
+         takenBy: user.username,
+         results: score / questions.length * 100,
+         dateTaken: date
+        }]
+      });
     return(
     <div>{finalScore? finalScore * 100 : "loading your score"}</div>
    )
