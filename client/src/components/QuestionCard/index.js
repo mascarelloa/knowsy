@@ -59,11 +59,18 @@ const QuestionCard = (props) => {
     // Then we check to see if there are any more questions to display, and if not end the quiz.
     if (currentQuestion != questions.length) {
       setCurrentQuestion(currentQuestion + 1);
-    } else {
-      // This should only be used to pass all of the final results to the quiz
-      // This function might need to be called in the conditional rendering since that is where we had to define the final score
-      // and im not sure that this would have access to that variable.
+
     }
+  }
+
+  // Prepares the data to be used by endQuiz
+  function dataPrep (data) {
+    const quizResults = props.quiz.quizStats
+    quizResults.push(data)
+    console.log(quizResults)
+    endQuiz({
+      quizStats: quizResults
+    })
   }
 
   // Updates the quiz db with stats.
@@ -140,25 +147,36 @@ const QuestionCard = (props) => {
         </div>
       );
 
-      // This else is in reference to the IF statement that deals with the conditional rendering
-    } else {
-      console.log(score);
-      endQuiz({
-        quizStats: [
-          {
-            takenBy: user.username,
-            results: (score / questions.length) * 100,
-            dateTaken: date,
-          },
-        ],
-      });
-      return <div>{finalScore ? finalScore * 100 : "loading your score"}</div>;
-
-      //THIS else statement is in reference to the IF statement that ensure that react has the props before trying to do anything else.
-    }
+  // This else is in reference to the IF statement that deals with the conditional rendering
   } else {
-    return <div>Loading your data</div>;
-  }
+    // Checks to see if the user is logged in. If they are it passes their username, if not it passes anon.
+    if (user.username){
+    dataPrep(
+      {
+         takenBy: user.username,
+         results: score / questions.length * 100,
+         dateTaken: date
+        }
+      );
+    } else {
+      dataPrep(
+        {
+           takenBy: "anonymous",
+           results: score / questions.length * 100,
+           dateTaken: date
+          }
+        );
+    }
+    return(
+    <div>{finalScore? finalScore * 100 : "loading your score"}</div>
+   )
+
+//THIS else statement is in reference to the IF statement that ensure that react has the props before trying to do anything else. 
+}} else{
+  return <div>Loading your data</div>
+}
+  
+
 };
 
 export default QuestionCard;

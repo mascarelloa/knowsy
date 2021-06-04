@@ -148,7 +148,7 @@ findOne: function(req, res) {
   // WORKS!!! Refactor into quizStats.takenBy when stats become available.
   findUserStats: function (req, res) {
     Quiz
-      .find({ 'questions.title': req.params.user })
+      .find({ 'quizStats.takenBy': req.params.user })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
