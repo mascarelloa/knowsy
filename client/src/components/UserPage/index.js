@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { UserContext } from "../../utils/UserContext";
 import UserQuizzes from "../UserQuizzes";
 import UserResults from "../UserResults";
@@ -25,15 +25,41 @@ const UserPage = () => {
             .catch((err) => console.log(err));
     }
 
-    useEffect(() => {
+    const removeQuiz = (e) => {
+        const updatedQuizzes = [...userQuizzes];
+        API.deleteQuiz(e.target.id)
+            .then((res) => console.log(res.data))
+            .catch((err) => console.log(err));
+            setUserQuizzes(updatedQuizzes.filter((quiz) => quiz._id !== e.target.id));
+    }
+
+    function loadQuizzes() {
         getUserQuizzes(username);
         getUserResults(username);
-    }, [username])
+    }
+
+    useEffect(() => {
+        loadQuizzes();
+    }, [])
 
     return (
         <div>
             <h1>Welcome {user.username}!</h1>
-            <UserQuizzes quizzes={userQuizzes} />
+            <div>
+                <h1>My Quizzes</h1>
+                <ul>
+                    {userQuizzes.map(quiz => (
+                        <li>
+                            <h1>{quiz.title}</h1>
+                            <p>{quiz.description}</p>
+                            <button id={quiz._id} name={quiz.title} onClick={removeQuiz}>Delete</button>
+                            <Link to={"/quiz/" + quiz._id}>
+                                <button>Take Quiz</button>
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            </div>
             <UserResults quizzes={userResults} />
         </div>
     )
