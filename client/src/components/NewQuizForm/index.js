@@ -43,7 +43,10 @@ const NewQuizForm = () => {
 
   // Allows the radio buttons next to each choice to be clicked and then populates the answer input with the same value.
   const selectChoice = (e) => {
+    // id is radio button 'value' and value is choice input 'value'
     const copiedAnswer = document.getElementById(e.target.value).value;
+    // id is radio button 'name' which is connected to the 'value' of answer
+    // EQUALS, id is radio button 'value' and value is 'value' of connected choice
     document.getElementById(e.target.name).value = document.getElementById(
       e.target.value
     ).value;
@@ -70,7 +73,7 @@ const NewQuizForm = () => {
   const handleInputChange = (e) => {
     const updatedQuestions = [...questions];
     if (e.target.className === "choices") {
-      updatedQuestions[e.target.dataset.idx].choices[e.target.id] =
+      updatedQuestions[e.target.dataset.idx].choices[e.target.name] =
         e.target.value;
       setQuestions(updatedQuestions);
     } else if (e.target.className === "question") {
@@ -279,23 +282,25 @@ const NewQuizForm = () => {
                 <br />
                 <div className="choice-container">
                 {quest.choices.map((cho, idx) => {
+                  let options = `option-${idx}`;
                   return (
                     <div key={idx}>
                       {/* Choices */}
                       <input
                         className="choice-radio"
-                        id={choice + "abox"}
+                        id={choice}
                         type="radio"
                         name={answer}
                         data-idx={index}
-                        value={idx}
+                        value={choice + options}
                         onClick={selectChoice}
                       />
             
                       <textarea
-                        id={idx}
+                        id={choice + options}
                         className="choices"
                         type="text"
+                        name={idx}
                         placeholder="Choice Here"
                         data-idx={index}
                         value={questions[index].choices[idx]}
