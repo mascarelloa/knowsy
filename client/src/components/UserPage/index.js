@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../utils/UserContext";
 import UserQuizzes from "../UserQuizzes";
+import UserResults from "../UserResults";
 import API from "../../utils/API";
 
 const UserPage = () => {
@@ -19,17 +20,21 @@ const UserPage = () => {
     }
 
     const getUserResults = (username) => {
-        // ToDo: Must create route that searches the quizzes based on "TakenBy"
+        API.getUserStats(username)
+            .then((res) => setUserResults(res.data))
+            .catch((err) => console.log(err));
     }
 
     useEffect(() => {
         getUserQuizzes(username);
+        getUserResults(username);
     }, [username])
 
     return (
         <div>
             <h1>Welcome {user.username}!</h1>
             <UserQuizzes quizzes={userQuizzes} />
+            <UserResults quizzes={userResults} />
         </div>
     )
 
