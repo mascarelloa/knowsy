@@ -29,7 +29,7 @@ function RegisterForm({ onRegister }) {
 			>
 				<div className="signup-content">
 				<img src={knowsy4}/>
-				<div className="form-group"><h1>Sign Up!</h1>
+				<div className="signup-form"><h1>Sign Up!</h1>
 					<input className="form-control" ref={userNameRef} type='text' name="username" placeholder='Enter Username' /><div className="input-title"><p>Username</p></div><br />
 					<input className="form-control" ref={emailRef} type='email' name="email" placeholder='Enter Email' /><div className="input-title"><p>Email</p></div><br />
 					<input className="form-control" ref={dobRef} type='date' name="dob" placeholder='MM/DD/YYYY' /><div className="input-title"><p>Date of Birth</p></div><br />

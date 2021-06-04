@@ -6,7 +6,7 @@ const quizSchema = new Schema({
   author: { type: String, required: true },
   description: { type: String },
   questions: [{
-    title: String, 
+    title: String,
     choices: [String],
     answer: String
   }],
@@ -16,8 +16,8 @@ const quizSchema = new Schema({
     results: Number, 
     dateTaken: Date
   }],
-  public: {type: Boolean, required: true},
-  adult: {type: Boolean, required: true},
+  public: { type: Boolean, required: true },
+  adult: { type: Boolean, required: true },
   tags: { type: [String], required: true }
 });
 

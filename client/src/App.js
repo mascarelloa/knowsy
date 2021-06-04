@@ -19,6 +19,7 @@ import Footer from './components/Footer';
 import Quiz from "./pages/Quiz"
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Profile from "./pages/Profile";
 import PublicRoute from "./pages/PublicRoute";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import './styles/App.css';
@@ -36,11 +37,13 @@ const AuthExample = () => (
           <Route exact path="/categories/:tags" component={Categories}/>
           <Route exact path="/search" component={Search} />
           <Route exact path="/quiz/:id" component={Quiz} />
-          <PrivateRoute exact path="/create" component={Create} />
+          <Route exact path="/create" component={Create} />
           <Route exact path="/allquizzes" component={AllQuizzes} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <PrivateRoute path="/protected" component={ProtectedRoute} />
+          <PrivateRoute path="/profile/:username" component={Profile} />
+
           {/* <Route component={NoMatch} /> */}
         </Switch>
         
