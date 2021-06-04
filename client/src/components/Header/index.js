@@ -44,7 +44,7 @@ function Header() {
             Auth.isAuthenticated ? (
               <div>
                 <Link to={"/profile/" + user.username}>My Dashboard</Link>
-                <button className="btn btn-danger"
+                <Link className="btn btn-danger"
                   onClick={() => {
                     Auth.signout(() => history.push('/login'))
                     dispatch({
@@ -54,7 +54,7 @@ function Header() {
                     window.location.reload();
                   }}>
                   Logout
-              </button>
+              </Link>
               </div>
             ) : (
               <div>
