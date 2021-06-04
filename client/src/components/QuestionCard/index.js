@@ -64,14 +64,18 @@ const QuestionCard = (props) => {
      if (currentQuestion != questions.length) {
       setCurrentQuestion(currentQuestion + 1);
       
-    } else {
-
-      // This should only be used to pass all of the final results to the quiz
-      // This function might need to be called in the conditional rendering since that is where we had to define the final score
-      // and im not sure that this would have access to that variable. 
-     
     }
 
+  }
+
+  // Prepares the data to be used by endQuiz
+  function dataPrep (data) {
+    const quizResults = props.quiz.quizStats
+    quizResults.push(data)
+    console.log(quizResults)
+    endQuiz({
+      quizStats: quizResults
+    })
   }
 
   // Updates the quiz db with stats.
@@ -145,14 +149,24 @@ if (questions) {
 
   // This else is in reference to the IF statement that deals with the conditional rendering
   } else {
-    console.log(score);
-    endQuiz(
-      {quizStats: [{
+    // Checks to see if the user is logged in. If they are it passes their username, if not it passes anon.
+    if (user.username){
+    dataPrep(
+      {
          takenBy: user.username,
          results: score / questions.length * 100,
          dateTaken: date
-        }]
-      });
+        }
+      );
+    } else {
+      dataPrep(
+        {
+           takenBy: "anonymous",
+           results: score / questions.length * 100,
+           dateTaken: date
+          }
+        );
+    }
     return(
     <div>{finalScore? finalScore * 100 : "loading your score"}</div>
    )
