@@ -27,7 +27,7 @@ const NewQuizForm = () => {
 
   // The base for our array of questions.
   const blankQuestion = {
-    question: "",
+    title: "",
     choices: ["", "", "", ""],
     answer: "",
   };
@@ -73,11 +73,16 @@ const NewQuizForm = () => {
       updatedQuestions[e.target.dataset.idx].choices[e.target.id] =
         e.target.value;
       setQuestions(updatedQuestions);
-    } else {
+    } else if (e.target.className === "question") {
       // [index] and [name]
-      updatedQuestions[e.target.dataset.idx][e.target.className] =
+      console.log(e.target.value);
+      updatedQuestions[e.target.dataset.idx].title =
         e.target.value;
       setQuestions(updatedQuestions);
+    } else {
+      updatedQuestions[e.target.dataset.idx].answer =
+        e.target.value;
+        setQuestions(updatedQuestions);
     }
   };
 
@@ -265,7 +270,7 @@ const NewQuizForm = () => {
                 <textarea
                   className="question"
                   type="text"
-                  name="question"
+                  name={question}
                   data-idx={index}
                   placeholder="Question Here"
                   value={questions[index].question}

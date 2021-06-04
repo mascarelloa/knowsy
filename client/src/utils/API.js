@@ -30,6 +30,10 @@ export default {
     return axios.get("/api/quiz/user/" + author);
   },
 
+  getUserStats: function(author){
+    return axios.get("/api/quiz/stats/user/" + author);
+  },
+
   // Gets a specific quiz by its id
   getQuiz: function(id) {
     return axios.get("/api/quiz/" + id);
