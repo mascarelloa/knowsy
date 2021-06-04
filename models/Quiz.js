@@ -13,7 +13,7 @@ const quizSchema = new Schema({
   version: { type: String, required: true },
   quizStats: [{
     takenBy: String, 
-    score: Number, 
+    results: Number, 
     dateTaken: Date
   }],
   public: {type: Boolean, required: true},
