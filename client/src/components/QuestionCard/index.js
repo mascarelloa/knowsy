@@ -16,11 +16,12 @@ const QuestionCard = (props) => {
   const [answer, setAnswer] = useState();
   const handleAnswerChange = e => {
     setAnswer(e.target.value);
-    
   }
+  // Handles keeping track of the # of questions the user has gotten correct.
+  const [score, setScore] = useState();
 
-   // This just allows for easier access to questions when writing logic for this code
-   const questions = props.quiz.questions;
+  // This just allows for easier access to questions when writing logic for this code
+  const questions = props.quiz.questions;
    
 
   // This handles restarting the quiz when the page is first loaded.
@@ -28,19 +29,61 @@ const QuestionCard = (props) => {
     startQuiz();
   }, []);
 
-
+// Resets the quiz when a user loads up the page
   function startQuiz() {
     setCurrentQuestion(0);
+    setScore(0);
   
   }
 
+  // This function fires when the user submits an answer. It handles the tracking of score, and updating the current question on the page
   function submitQuestion(answer) {
-    setCurrentQuestion(currentQuestion + 1);
-    console.log(answer);
+    
+    // This checks if the user's answer was correct and increases score, then moves to the next question if there if one. 
+    if (answer == questions[currentQuestion].answer) {
+      setScore(score + 1);
+      setQuestion();
+    
+    } else {
+      // Figure out how to store which questions they got wrong.
+      setQuestion();
+    }
+
+    
   }
 
-  
-  return (
+  // Checks to see if there are any additional questions in the array and renders them.
+  // invoked in submitQuestion. 
+  function setQuestion() {
+     // Then we check to see if there are any more questions to display, and if not end the quiz.
+     if (currentQuestion != questions.length) {
+      setCurrentQuestion(currentQuestion + 1);
+      
+    } else {
+
+      // This should only be used to pass all of the final results to the quiz
+      // This function might need to be called in the conditional rendering since that is where we had to define the final score
+      // and im not sure that this would have access to that variable. 
+     endQuiz();
+    }
+
+  }
+
+  // Updates the quiz db with stats.
+  function endQuiz() { 
+    
+   }
+
+// This If statement makes sure the page has props before trying to render anything. The whole app breaks if you remove it. 
+if (questions) {
+
+  // This is where we determine final score of the test. It has to be declared in here because otherwise the page doesn't believe there is such thing as questions.length
+  let finalScore = score / questions.length
+
+  // This if statement is the ACTUAL conditional render. This will change based on whether or not there are questions left in the array to render.
+  if (currentQuestion != questions.length) { 
+    return (
+    
 <div> 
   <div className="quiz-container">
     
@@ -87,6 +130,17 @@ const QuestionCard = (props) => {
     
   );
 
+  // This else is in reference to the IF statement that deals with the conditional rendering
+  } else {
+    console.log(score);
+    return(
+    <div>{finalScore? finalScore * 100 : "loading your score"}</div>
+   )
+
+//THIS else statement is in reference to the IF statement that ensure that react has the props before trying to do anything else. 
+}} else{
+  return <div>Loading your data</div>
+}
   
 };
 

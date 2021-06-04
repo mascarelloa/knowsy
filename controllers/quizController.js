@@ -78,8 +78,31 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-  //   Finds one Quiz
-  findOne: function (req, res) {
+// All of the requests below do not take into account the public availability of quizzes.
+// These are the methods to find quizzes for specific users on their profile page.
+  
+// Gets all of the user's quizzes to display on the page.
+findUserQuizzes: function (req, res) {
+  Quiz
+  .find({ })
+  .where('author').equals(req.params.user)
+  .sort({ title: 1 })
+  .then(Quiz => res.json(Quiz))
+  .catch(err => res.status(422).json(err));
+},
+
+// Allows the user to search their page for a specific quiz.
+searchUserQuizzes: function (req, res) {
+  Quiz
+  .find({ })
+  .where('title').equals(req.body.title)
+  .then(dbModel => res.json(dbModel))
+  .catch(err => res.status(422).json(err));
+},
+
+//   Finds one Quiz
+findOne: function(req, res) {
+
     Quiz
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
