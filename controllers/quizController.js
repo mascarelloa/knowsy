@@ -68,6 +68,7 @@ findUserQuizzes: function (req, res) {
   .then(Quiz => res.json(Quiz))
   .catch(err => res.status(422).json(err));
 },
+
 // Allows the user to search their page for a specific quiz.
 searchUserQuizzes: function (req, res) {
   Quiz
