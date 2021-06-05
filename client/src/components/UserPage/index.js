@@ -11,19 +11,21 @@ const UserPage = () => {
     const [userResults, setUserResults] = useState([]);
     const { username } = useParams();
 
-
+    // Retrieves all quizzes created by the current user.
     const getUserQuizzes = (username) => {
         API.getUserQuiz(username)
             .then((res) => setUserQuizzes(res.data))
             .catch((err) => console.log(err));
     }
 
+    // Retrieves all scores the user has achieved on various quizzes.
     const getUserResults = (username) => {
         API.getUserStats(username)
             .then((res) => setUserResults(res.data))
             .catch((err) => console.log(err));
     }
 
+    // Allows user to delete quiz they have created from the database.
     const removeQuiz = (e) => {
         const updatedQuizzes = [...userQuizzes];
         API.deleteQuiz(e.target.id)
@@ -32,17 +34,14 @@ const UserPage = () => {
         setUserQuizzes(updatedQuizzes.filter((quiz) => quiz._id !== e.target.id));
     }
 
+    // Clears all stats in the selected quiz.
     const clearStats = (e) => {
         let updatedQuiz = userQuizzes.filter((quiz) => quiz._id === e.target.name);
-        // console.log(updatedQuiz);
-        // console.log(updatedQuiz[0].quizStats);
-        // console.log(userQuizzes);
         updatedQuiz[0].quizStats = [];
         console.log(updatedQuiz);
         API.updateQuiz(e.target.name, updatedQuiz[0])
             .then((res) => console.log(res.data))
             .catch((err) => console.log(err));
-        // console.log(updatedQuizzes[0].quizStats);
         loadQuizzes();
     }
 
@@ -60,19 +59,30 @@ const UserPage = () => {
             <h1>Welcome {user.username}!</h1>
             <div>
                 <h1>My Quizzes</h1>
-                <ul>
+                <div>
                     {userQuizzes.map(quiz => (
-                        <li>
-                            <h1>{quiz.title}</h1>
-                            <p>{quiz.description}</p>
-                            <button id={quiz._id} onClick={removeQuiz}>Delete</button>
-                            <button name={quiz._id} onClick={clearStats}>Clear Stats</button>
-                            <Link to={"/quiz/" + quiz._id}>
-                                <button>Take Quiz</button>
-                            </Link>
-                        </li>
+                        <div>
+                            <h2>{quiz.title}</h2>
+                            <div>
+                                <p>{quiz.description}</p>
+                                {/* Displays stats of each person who took quiz */}
+                                {
+                                    quiz.quizStats.map((stat, index) => {
+                                        return (
+                                            <div key={index}>
+                                                <p>User: {stat.takenBy}</p>
+                                                <p>Score: {stat.results}</p>
+                                                <p>Date Taken: {stat.dateTaken}</p>
+                                            </div>
+                                        )
+                                    })
+                                }
+                                <button id={quiz._id} onClick={removeQuiz}>Delete</button>
+                                <button name={quiz._id} onClick={clearStats}>Clear Stats</button>
+                            </div>
+                        </div>
                     ))}
-                </ul>
+                </div>
             </div>
             <UserResults quizzes={userResults} />
         </div>
