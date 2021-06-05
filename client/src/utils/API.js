@@ -50,6 +50,6 @@ export default {
   // Updates a single quiz. should be used for minor changes that dont institute a new version of the quiz.
   // This may not work. If not the issue is likely the difference between req.params.id vs req.body
   updateQuiz: function(id, data) {
-    return axios.patch("/api/quiz/" + id, data);
+    return axios.put("/api/quiz/" + id, data);
   }
 };
