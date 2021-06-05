@@ -16,7 +16,7 @@ router.route('/search')
 // Matches with "/api/quiz/:id"
 router.route("/:id")
   .get(quizController.findOne)
-  .patch(quizController.update)
+  .put(quizController.update)
   .delete(quizController.remove);
 
 // Matches with /api/quiz/new
