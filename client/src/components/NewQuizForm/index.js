@@ -1,8 +1,10 @@
 import React, { useContext, useRef, useState } from "react";
 import { UserContext } from "../../utils/UserContext";
 import "./NewQuizForm.css";
-import { FaPlus, FaCheck } from "react-icons/fa";
-import { GiSaveArrow } from 'react-icons/gi'
+import { FaPlus, FaCheck, FaTimes } from "react-icons/fa";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const NewQuizForm = () => {
@@ -128,6 +130,18 @@ const NewQuizForm = () => {
   };
 
 
+  const notify = () => toast("Your quiz has been saved!", {
+    position: "top-center",
+    autoClose: 5000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    });
+
+
+
 
   return (
     <form
@@ -138,6 +152,7 @@ const NewQuizForm = () => {
           alert("Your quiz must have a title!");
         } else {
           console.log(tags);
+          alert("Your quiz has been saved!");
           return create({
             title: titleRef.current.value,
             author: user.username,
@@ -348,11 +363,16 @@ const NewQuizForm = () => {
           <div className="button-wrapper">
           <button className="add" type="button" onClick={handleAddQuestion} value="Add Question +">Add question <FaPlus id="plus-icon"/></button>
         
-          <button className="remove" type="button" onClick={removeLastQuestion} value="Add Question +">Remove last question</button>
+          <button className="remove" type="button" onClick={removeLastQuestion} value="Add Question +">Remove last question <FaTimes id="delete-icon"/></button>
 
         <button className="save" type="submit">
           Save quiz <FaCheck id="save-icon"/>
-        </button></div>
+        </button>
+       
+
+    
+
+       </div>
       </div>
       </div>
     </form>

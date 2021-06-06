@@ -5,19 +5,19 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/knowsy");
 
 const quizSeed = [
     {
-        title: "Sample Quiz 1",
-        author: "admin",
-        description: "This is a sample description. This is a sample description. This is a sample description. This is a sample description. This is a sample description. This is a sample description. ",
+        title: "U.S. State Capitols",
+        author: "Annie",
+        description: "Can you guess the capitol cities of these popular U.S. states?",
         questions: [
             {
-                "title": "1and1",
-                "choices": ["1", "2", "3", "4"],
-                "answer": "2"
+                "title": "What is the capitol of Florida?",
+                "choices": ["Tallahassee", "Orlando", "Tampa", "Jacksonville"],
+                "answer": "Tallahassee"
             },
             {
-                "title": "What is 2+2?",
-                "choices": ["1", "2", "3", "4"],
-                "answer": "4"
+                "title": "What is the Capitol of Texas?",
+                "choices": ["San Antonio", "Austin", "Dallas", "Houston"],
+                "answer": "Austin"
             }
             
         ],
@@ -25,7 +25,7 @@ const quizSeed = [
         public: true,
         adult: true,
         quizStats: [],
-        tags: ['math']
+        tags: ['geography']
     },
     {
         title: "Sample Quiz 2",
