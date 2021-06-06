@@ -27,7 +27,8 @@ const Categories = () => {
   
 console.log(quizzes)
   return (
-    <div>
+    <div className="main-body">
+        <h5>{tags}</h5>
       <QuizCard quizzes={quizzes} />
     </div>
   );

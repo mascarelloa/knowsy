@@ -14,8 +14,8 @@ const SearchResults = () => {
   }
 
   return (
-    <div>
-        <h1></h1>
+    <div className="main-body">
+        <h5>Category</h5>
       <QuizCard quizzez={quizzes} />
     </div>
   );

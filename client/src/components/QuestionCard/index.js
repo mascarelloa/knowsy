@@ -1,9 +1,12 @@
-import { FaListUl } from "react-icons/fa";
+import { FaListUl, FaRProject } from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
 import API from "../../utils/API";
 import "./QuestionCard.css";
 import { UserContext } from "../../utils/UserContext";
 import React, { useContext, useRef, useState, useEffect } from "react";
+import {FaArrowRight, FaPercent} from "react-icons/fa"
+import banner from "../../scorebanner.png"
+
 
 // This component is for displaying the quizzes and allowing the user to take them. Still needs quite a bit of logic to it.
 // This component is currently only used by the Quiz.js page.
@@ -135,9 +138,9 @@ const QuestionCard = (props) => {
                     : "loading your data"}
                 </div>
 
-                <button className="btn btn btn-primary" type="submit">
-                  Submit
-                </button>
+                <center><button className="submit-answer" type="submit">
+                  Submit Answer <FaArrowRight id="take-quiz" />
+                </button></center>
                 {/* Links back to the home page. */}
               </form>
             </div>
@@ -168,7 +171,14 @@ const QuestionCard = (props) => {
         );
     }
     return(
-    <div>{finalScore? finalScore * 100 : "loading your score"}</div>
+    <div className="score-container">
+      <div className="score-card">
+        <img src={banner}/><br/>
+        <h5>Your score:</h5>
+      <br/>
+      <big>{finalScore? Math.round(finalScore * 100) : "loading your score"} <FaPercent id="percent"/></big>
+      </div>
+      </div>
    )
 
 //THIS else statement is in reference to the IF statement that ensure that react has the props before trying to do anything else. 

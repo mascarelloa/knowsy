@@ -7,6 +7,7 @@ const quizSeed = [
     {
         title: "Sample Quiz 1",
         author: "admin",
+        description: "This is a sample description. This is a sample description. This is a sample description. This is a sample description. This is a sample description. This is a sample description. ",
         questions: [
             {
                 "title": "1and1",
@@ -24,11 +25,12 @@ const quizSeed = [
         public: true,
         adult: true,
         quizStats: [],
-        tags: ['educational', 'test', 'math', 'elementary']
+        tags: ['math']
     },
     {
         title: "Sample Quiz 2",
         author: "kevin",
+        description: "This is a sample description. This is a sample description. This is a sample description. This is a sample description. This is a sample description. This is a sample description. ",
         questions: [
             {
                 "title": "What is 1+1?",
@@ -45,7 +47,7 @@ const quizSeed = [
         public: true,
         adult: false,
         quizStats: [],
-        tags: ['educational', 'elementary']
+        tags: ['math']
     },
     {
         title: "Sample Quiz 3",
@@ -66,7 +68,7 @@ const quizSeed = [
         public: true,
         adult: false,
         quizStats: [],
-        tags: ['educational', 'math']
+        tags: ['math']
     },
     {
         title: "Sample Quiz 4",
