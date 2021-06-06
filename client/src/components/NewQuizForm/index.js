@@ -67,7 +67,7 @@ const NewQuizForm = () => {
       updatedTags.push(tagToSend);
       setTags(updatedTags);
     } else {
-      setTags(updatedTags.filter(tag => tag !== e.target.id))
+      setTags(updatedTags.filter((tag) => tag !== e.target.id.toLowerCase()))
     }
   };
 
@@ -77,30 +77,37 @@ const NewQuizForm = () => {
     if (e.target.className === "choices") {
       updatedQuestions[e.target.dataset.idx].choices[e.target.name] =
         e.target.value;
-      setQuestions(updatedQuestions);
+        console.log(updatedQuestions);
     } else if (e.target.className === "question") {
       // [index] and [name]
-      console.log(e.target.value);
       updatedQuestions[e.target.dataset.idx].title =
         e.target.value;
-      setQuestions(updatedQuestions);
+        console.log(updatedQuestions);
     } else {
       updatedQuestions[e.target.dataset.idx].answer =
         e.target.value;
-        setQuestions(updatedQuestions);
+        console.log(updatedQuestions);
     }
+    setQuestions(updatedQuestions);
   };
 
   // Allows a user to remove the clicked question from the quiz.
-  const removeQuestion = (e) => {
-    console.log("clicked")
-    const questionName = e.target.name;
-    console.log(questionName);
+  // const removeQuestion = (e) => {
+  //   const questionName = document.getElementById(e.target.name).value;
+  //   console.log(questionName);
+  //   console.log(questions);
+  //   const updatedQuestions = [...questions];
+  //   setQuestions(
+  //     updatedQuestions.filter((question) => question.title !== questionName)
+  //   );
+  // };
+
+  // Allows a user to remove the last question from the quiz.
+  const removeLastQuestion = () =>  {
     const updatedQuestions = [...questions];
-    setQuestions(
-      updatedQuestions.filter((question) => question.title !== questionName)
-    );
-  };
+    updatedQuestions.pop();
+    setQuestions(updatedQuestions);
+  }
 
   // API call to post the new quiz to the database.
   const create = (data) => {
@@ -264,15 +271,17 @@ const NewQuizForm = () => {
             <div key={index} className="question-card">
               <div>
                 {/* Question */}
-                <button type="button" className="delete"
-                  name={questions[index].question}
+                {/* <button type="button" className="delete"
+                  name={question}
                   onClick={removeQuestion}>
                   ✖
-                 </button><br/>
+                 </button> */}
+                <br/>
                 <h4>{`Question ${index +  1}`}</h4> 
                 <br/>
 
                 <textarea
+                  id={question}
                   className="question"
                   type="text"
                   name={question}
@@ -338,6 +347,8 @@ const NewQuizForm = () => {
           {/* Add Question Button - is input to prevent form submission on click */}
           <div className="button-wrapper">
           <button className="add" type="button" onClick={handleAddQuestion} value="Add Question +">Add question <FaPlus id="plus-icon"/></button>
+        
+          <button className="remove" type="button" onClick={removeLastQuestion} value="Add Question +">Remove last question</button>
 
         <button className="save" type="submit">
           Save quiz <FaCheck id="save-icon"/>
