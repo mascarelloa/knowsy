@@ -67,7 +67,7 @@ function Navbar() {
     <Link to="/categories/history">History</Link>
     <Link to="/categories/entertainment">Entertainment</Link>
     <Link to="/categories/sports">Sports</Link>
-    <Link to="/categories/fun">Just for Fun</Link>
+    <Link to="/categories/justforfun">Just for Fun</Link>
   
   
           </div>
