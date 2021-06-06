@@ -16,7 +16,8 @@ const AllQuizzes = () => {
   }
 
   return (
-    <div>
+    <div className="main-body">
+      <h5>All quizzes</h5><br />
       <QuizCard quizzes={quizzes} />
     </div>
   );

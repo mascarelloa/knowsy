@@ -24,6 +24,7 @@ import PublicRoute from "./pages/PublicRoute";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import './styles/App.css';
 import { UserProvider } from "./utils/UserContext";
+import message from "./loginmessage.png"
 
 //Now we have all the stuff we need .. let's render some components with the Router
 const AuthExample = () => (
@@ -63,17 +64,19 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
         Auth.isAuthenticated ? (
           <Component {...props} />
         ) : (
-          <div className="container">
-            <div className="alert alert-danger text-center" role="alert">
-              This page is private to authenticated users.
-					</div>
-            <div className="row">
-              <div className="col-sm"></div>
-              <div className="col-sm">
-                <h3>Please Register or Login</h3>
-              </div>
-              <div className="col-sm"></div>
-            </div>
+          <div className="main-body">
+
+            <img src={message}/>
+             {/* <div className="alert alert-danger text-center" role="alert">
+          //     This page is private to authenticated users.
+					// </div>
+          //   <div className="row">
+          //     <div className="col-sm"></div>
+          //     <div className="col-sm">
+          //       <h3>Please Register or Login</h3>
+          //     </div>
+          //     <div className="col-sm"></div> */}
+         
             <Redirect to={{
               pathname: '/login',
               state: { from: props.location }

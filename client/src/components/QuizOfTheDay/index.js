@@ -7,7 +7,7 @@ const QuizOfTheDay = () => {
   return (
     <div>
       <div className="qotd-wrapper">
-        <div className="qotd-container">
+        {/* <div className="qotd-container">
           <div className="qotd-content">
           <h1>Randomizer!</h1>
             <h2>Try a random quiz...</h2>
@@ -15,7 +15,7 @@ const QuizOfTheDay = () => {
             Take Quiz <FaArrowRight id="take-qotd" />
           </button></Link>
         </div>
-        </div>
+        </div> */}
 
         <div className="qotd-container">
         <div className="qotd-content">

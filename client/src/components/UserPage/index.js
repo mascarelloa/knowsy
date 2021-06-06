@@ -3,6 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import { UserContext } from "../../utils/UserContext";
 import UserResults from "../UserResults";
 import API from "../../utils/API";
+import './UserPage.css'
+import linebreak from "../../bar.png"
 
 const UserPage = () => {
 
@@ -55,36 +57,50 @@ const UserPage = () => {
     }, [])
 
     return (
-        <div>
-            <h1>Welcome {user.username}!</h1>
-            <div>
-                <h1>My Quizzes</h1>
-                <div>
-                    {userQuizzes.map(quiz => (
+        <div className="main">
+            <center><h5>Welcome {user.username}!</h5></center>
+
+            <div className="user-stats">
+            <div className="myquiz-container">
+            <center><h1>My Quizzes</h1></center>
+                
+                <div className="myquiz-card-container">
+                    {userQuizzes.map(quiz => (<div className="myquiz-card">
                         <div>
-                            <h2>{quiz.title}</h2>
-                            <div>
-                                <p>{quiz.description}</p>
+                            <h4>{quiz.title}</h4>
+                            <h2>Quiz Activity:</h2>
+                            <div className="stats">
+            
                                 {/* Displays stats of each person who took quiz */}
                                 {
                                     quiz.quizStats.map((stat, index) => {
                                         return (
-                                            <div key={index}>
-                                                <p>User: {stat.takenBy}</p>
-                                                <p>Score: {stat.results}</p>
-                                                <p>Date Taken: {stat.dateTaken}</p>
+                                            <>
+                                            <div id="stats" key={index}>
+                                                <p><b>User:</b> {stat.takenBy}</p>
+                                                <p><b>Score:</b> {Math.round(stat.results)}</p>
+                                                <p><b>Date:</b> {stat.dateTaken.slice(0,10)}</p>
                                             </div>
+                                            <br/>
+                                            </>
                                         )
                                     })
                                 }
-                                <button id={quiz._id} onClick={removeQuiz}>Delete</button>
-                                <button name={quiz._id} onClick={clearStats}>Clear Stats</button>
+                                </div>
+                                <center><button id={quiz._id} onClick={removeQuiz}>Delete</button>
+                                <button name={quiz._id} onClick={clearStats}>Clear</button></center>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
+
+
+            
             <UserResults quizzes={userResults} />
+           
+
+            </div>
         </div>
     )
 
