@@ -54,7 +54,8 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 /* === Mongoose Connection === */
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/knowsy', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/knowsy', { useNewUrlParser: true, useUnifiedTopology: true,useCreateIndex: true,
+useFindAndModify: false });
 
 /* === Error Handling === */
 
