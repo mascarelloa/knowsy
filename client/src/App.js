@@ -37,7 +37,7 @@ const AuthExample = () => (
           <Route exact path="/categories/:tags" component={Categories}/>
           <Route exact path="/search/:title" component={Search} />
           <Route exact path="/quiz/:id" component={Quiz} />
-          <Route exact path="/create" component={Create} />
+          <PrivateRoute exact path="/create" component={Create} />
           <Route exact path="/allquizzes" component={AllQuizzes} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
