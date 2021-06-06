@@ -59,7 +59,9 @@ const NewQuizForm = () => {
   const handleTagChange = (e) => {
     const updatedTags = [...tags];
     if (e.target.checked) {
-      updatedTags.push(e.target.id);
+      let newTag = e.target.id;
+      let tagToSend = newTag.toLowerCase();
+      updatedTags.push(tagToSend);
       setTags(updatedTags);
     } else {
       setTags(updatedTags.filter(tag => tag !== e.target.id))
