@@ -13,9 +13,9 @@ export default {
   getAll: function(){
     return axios.get("/api/quiz");
   },
-   // Searches for quizzes based on author / title uses searchAll in controller
-   searchQuizzesPublic: function(data) {
-    return axios.get("/api/quiz/search", data);
+   // Searches for quizzes based on title uses searchAll in controller
+   searchQuizzesPublic: function(title) {
+    return axios.get("/api/quiz/search/" + title);
   },
 
 // The functions below do not check is a quiz is made public or not, should only be used 

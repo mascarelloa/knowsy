@@ -167,6 +167,7 @@ if (questions) {
           }
         );
     }
+    // This is the results page render.
     return(
     <div>{finalScore? finalScore * 100 : "loading your score"}</div>
    )
