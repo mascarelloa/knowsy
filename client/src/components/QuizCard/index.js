@@ -7,13 +7,14 @@ import { Link } from "react-router-dom";
 
 
 const QuizCard = (props) => {
+  console.log(props)
 
   return (
 <div> 
   <div className="quiz-card-container">
     {/* Maps over all of the quizzes that are sent to it from either the Categories.js page */}
     {/* or the AllQuizzes.js page */}
-    {props.quizzes.map(quiz => (
+    {props.quizzes? props.quizzes.map(quiz => (
      
         <div className="quiz-card">
             <div className="quiz-card-title"><h1>{quiz.title}</h1>
@@ -31,7 +32,7 @@ const QuizCard = (props) => {
           </Link>
           </div>
   
-    ))}
+    )): "loading your data"}
     </div>
     </div>
   );

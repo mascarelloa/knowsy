@@ -2,14 +2,19 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 // import AuthButton from "../AuthButton";
 import { UserContext } from "../../utils/UserContext";
+import { useHistory } from "react-router";
 import "./Navbar.css";
 import { ImSearch } from "react-icons/im";
 import { FaHome, FaPlus } from "react-icons/fa";
+import Search from "../../pages/Search";
+
 
 function Navbar() {
+  let history = useHistory();
 
   const [user, dispatch] = useContext(UserContext);
-
+  // Handles the search bar function
+  const [searchValue, setSearchValue] = useState();
   const [open, setOpen] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
 
@@ -32,6 +37,10 @@ function Navbar() {
       window.removeEventListener("resize", updateWidth);
     }
   }, [])
+
+  function searchQuiz(data) {
+    history.push("/search/" + data);   
+  }
 
   return (
     <div>
@@ -68,11 +77,22 @@ function Navbar() {
           </Link>
           </div>
     
-        <form>
-          <input type="text" placeholder="Find a quiz..." name="search" />
+        <form
+          onSubmit={(e) => {
+              
+          e.preventDefault();
+          searchQuiz(searchValue);
+
+      }}
+        >
+          {/* The onchange updates the state based on user input and passes it to the redirect so that the API call works properly. */}
+          {/* See Search.js for where the API call is being handled. */}
+          <input id="searchValue" type="text" placeholder="Find a quiz..." name="search" onChange={e => setSearchValue(e.target.value)} required />
+          
           <button class="icon" id="search" type="submit">
             <ImSearch />
           </button>
+          
         </form>
       </div>
     </div>
