@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 // import AuthButton from "../AuthButton";
 import { UserContext } from "../../utils/UserContext";
+import { useHistory } from "react-router";
 import "./Navbar.css";
 import { ImSearch } from "react-icons/im";
 import { FaHome, FaPlus } from "react-icons/fa";
@@ -9,6 +10,7 @@ import Search from "../../pages/Search";
 
 
 function Navbar() {
+  let history = useHistory();
 
   const [user, dispatch] = useContext(UserContext);
   // Handles the search bar function
@@ -37,7 +39,7 @@ function Navbar() {
   }, [])
 
   function searchQuiz(data) {
-    window.location.replace("/search/" + data);   
+    history.push("/search/" + data);   
   }
 
   return (
