@@ -96,7 +96,7 @@ const NewQuizForm = () => {
     console.log(questionName);
     const updatedQuestions = [...questions];
     setQuestions(
-      updatedQuestions.filter((question) => question.question !== questionName)
+      updatedQuestions.filter((question) => question.title !== questionName)
     );
   };
 
