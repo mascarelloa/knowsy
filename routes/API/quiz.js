@@ -10,7 +10,7 @@ router.route("/")
   .get(quizController.getAll);
 
 // Matches with /api/quiz/search
-router.route('/search')
+router.route('/search/:title')
   .get(quizController.searchAll);
 
 // Matches with "/api/quiz/:id"

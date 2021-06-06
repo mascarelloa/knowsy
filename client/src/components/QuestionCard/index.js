@@ -170,6 +170,7 @@ const QuestionCard = (props) => {
           }
         );
     }
+    // This is the results page render.
     return(
     <div className="score-container">
       <div className="score-card">
