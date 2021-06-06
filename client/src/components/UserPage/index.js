@@ -57,7 +57,7 @@ const UserPage = () => {
     }, [])
 
     return (
-        <div className="main">
+        <>
             <center><h5>Welcome {user.username}!</h5></center>
 
             <div className="user-stats">
@@ -101,7 +101,7 @@ const UserPage = () => {
            
 
             </div>
-        </div>
+        </>
     )
 
 }

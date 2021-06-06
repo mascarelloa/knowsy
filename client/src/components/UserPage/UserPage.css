@@ -7,7 +7,18 @@
   text-align: left;
   margin-top: 50px;
 }
-.myquiz-container,
+.myquiz-container {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+  /* border:4px solid #F7D600;
+border-radius:15px; */
+  margin-bottom: 20px;
+
+}
+
 .mytaken-container {
   display: flex;
   flex-direction: column;
@@ -17,6 +28,7 @@
   /* border:4px solid #F7D600;
 border-radius:15px; */
   margin-bottom: 20px;
+
 }
 
 .myquiz-card-container {
@@ -24,6 +36,7 @@ border-radius:15px; */
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  max-width:700px;
   /* overflow-y: scroll; */
   /* overflow-x:scroll; */
 }

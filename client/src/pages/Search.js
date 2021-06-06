@@ -25,7 +25,8 @@ const Search = () => {
   
 
   return (
-    <div>
+    <div className="main-body">
+      <h5>Results</h5>
       <QuizCard quizzes={quizzes} />
     </div>
   );

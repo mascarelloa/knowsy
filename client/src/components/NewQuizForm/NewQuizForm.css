@@ -261,18 +261,20 @@ display:inline;
 
 .button-wrapper {
   display:flex;
-  flex-direction:row;
-  justify-content:space-around;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
   width:500px;
 
 }
 
-#plus-icon, #save-icon {
+#plus-icon, #save-icon, #delete-icon{
   position:relative;
   top:1px;
   font-size:16px;
 }
 
-.add, .save {
-width:200px;
+.add, .save, .remove {
+width:300px;
+margin-bottom:10px;
 }

@@ -1,5 +1,7 @@
 import React, { useEffect, useContext } from 'react'
 import { UserContext } from "../../utils/UserContext";
+import loggedin from "../../loggedin.png"
+
 
 /* This is a very simple component.. it probably doesn't need to be a smart component at this point but you never know what's goingto happen in the future */
 
@@ -32,11 +34,8 @@ function ProtectedRoute() {
 	}, []);
 
 	return (
-		<div className="container">
-			<div className="alert alert-success" role="alert">
-				Success, You are logged in
-				</div>
-				<p>You are logged in.</p>
+		<div className="main-body">
+			<img src={loggedin}/>
 		</div>
 	)
 

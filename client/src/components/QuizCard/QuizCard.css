@@ -24,6 +24,12 @@
   border-radius: 8px;
 }
 
+.quiz-card a { 
+margin-left:0px;
+margin-right:0px;
+text-align:center;
+}
+
 
 h1 {
   font-family: poppins;
@@ -65,10 +71,10 @@ h2 {
 
 #quiz-card-btn {
   /* display: inline; */
-  text-align:right;
+  /* text-align:right; */
   margin-top: 10px;
   margin-left:0;
-  /* width:100%; */
+
 }
 
 @media screen and (max-width: 800px) {

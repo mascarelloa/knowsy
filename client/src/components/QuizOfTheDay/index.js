@@ -3,9 +3,10 @@ import "./QuizOfTheDay.css";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+
 const QuizOfTheDay = () => {
   return (
-    <div>
+    <>
       <div className="qotd-wrapper">
         {/* <div className="qotd-container">
           <div className="qotd-content">
@@ -40,7 +41,7 @@ const QuizOfTheDay = () => {
 
 
       </div>
-    </div>
+    </>
   );
 };
 
