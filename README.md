@@ -18,12 +18,16 @@
   * [Questions](#Questions)
 
   ## Visuals
+  ![knowsy1](https://user-images.githubusercontent.com/75543740/121080876-fe03e280-c7a9-11eb-9195-a71989f403e4.PNG)
+![knowsy2](https://user-images.githubusercontent.com/75543740/121080881-ff350f80-c7a9-11eb-907f-4b4182e0d6b8.PNG)
+![knowsy3](https://user-images.githubusercontent.com/75543740/121080882-ff350f80-c7a9-11eb-97aa-5ffa79c205ad.PNG)
+![knowsy4](https://user-images.githubusercontent.com/75543740/121080884-ffcda600-c7a9-11eb-8a14-c3f40c0e86ce.PNG)
 
   ## Installation
   npm i
 
   ## Usage
-  User can generate a pull request.
+  Built with React, MongoDB, Node, Express, Javascript, CSS.
 
   ## License
   This project is covered under the MIT license. 
