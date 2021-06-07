@@ -35,4 +35,4 @@
   npm test
 
   ## Questions
-  If you have any questions about this project, feel free to contact us directly at amfm0793@gmail.com, ,  or simply open an issue. To see more of our work, visit our GitHub profiles at [mascarelloa](https://github.com/mascarelloa/), [](), and []().
+  If you have any questions about this project, feel free to contact us directly at amfm0793@gmail.com, keddie024@gmail.com, cash.galko12@ncf.edu or simply open an issue. To see more of our work, visit our GitHub profiles at [mascarelloa](https://github.com/mascarelloa/), [keddie024](https://github.com/keddie024), and [CashGalko](https://github.com/CashGalko).
