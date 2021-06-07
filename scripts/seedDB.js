@@ -282,12 +282,12 @@ const quizSeed = [
             {
                 "title": "Goku and Vegeta are a race of aliens known as...",
                 "choices": ["Namekian", "Majin", "Saiyan", "Demon"],
-                "answer": "23"
+                "answer": "Saiyan"
             },
             {
                 "title": "Monkey D. Luffy is the leader of...",
                 "choices": ["Red-Haired Shanks", "Straw Hat Pirates", "Heart Pirates", "Fire Tank Pirates"],
-                "answer": "-2"
+                "answer": "Straw Hat Pirates"
             }
         ],
         version: "1",
