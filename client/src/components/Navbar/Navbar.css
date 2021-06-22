@@ -229,3 +229,70 @@ input {
 
 
   }
+
+
+  @media screen and (max-width: 590px) {
+    #create{
+        font-size:12px;
+     
+    }
+    
+    #create:hover {
+       font-size:12px;
+    }
+
+    a, a:active, a:visited {
+        font-size:12px;
+    }
+
+    a, a:active, a:visited {
+        font-size:12px; 
+    }
+
+    .icon {
+       
+        font-size:18px;
+    }
+    
+    .plus {
+        font-size:11px;
+    }
+
+
+  }
+
+
+  @media screen and (max-width: 380px) {
+ 
+    .right{
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+       
+    }
+
+    #create{
+        font-size:16px;
+     
+    }
+    
+    #create:hover {
+       background-color: #00C2C9;
+       font-size:16px;
+    }
+
+    a, a:active, a:visited {
+        font-size:16px; 
+    }
+
+    .icon {
+       
+        font-size:23px;
+    }
+    
+    .plus {
+        font-size:15px;
+    }
+
+
+  }
