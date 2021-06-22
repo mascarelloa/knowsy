@@ -27,6 +27,12 @@
   }
 }
 
+@media screen and (max-width: 550px) {
+  .cat-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 .cat-card {
   width: 200px;
   height: 200px;
